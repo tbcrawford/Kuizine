@@ -1,1 +1,2 @@
 # Kuizine
+# Changelog
