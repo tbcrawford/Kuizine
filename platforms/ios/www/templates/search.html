@@ -1,10 +1,18 @@
-<ion-view title="Search">
-<!--    <ion-content overflow-scroll="true" padding="true" class="has-header">-->
-    <ion-content overflow-scroll="true" padding="true" class="bar bar-header bar-positive">
-<!--        <form class="list">-->
-<!--            <label class="item item-input">-->
-<!--                <input type="text" placeholder="Search">-->
-<!--            </label>-->
-<!--        </form>-->
+<ion-view view-title="Search" ng-controller="ItemController as vm">
+    <ion-nav-buttons side="secondary">
+        <div class="buttons">
+            <button class="button button-icon ion-ios-search-strong" ng-click="vm.showFilterBar()"></button>
+        </div>
+    </ion-nav-buttons>
+    <ion-content direction="y" scrollbar-y="false">
+        <ion-refresher pulling-icon="ion-arrow-down-b" on-refresh="vm.refreshItems()"></ion-refresher>
+        <ion-list>
+            <div collection-repeat="item in vm.items | groupByMonthYear" divider-collection-repeat>
+                <ion-item>
+                    <div>{{ item.description }}</div>
+                    <div>{{ item.date | date:'dd-MM-yyyy' }}</div>
+                </ion-item>
+            </div>
+        </ion-list>
     </ion-content>
 </ion-view>

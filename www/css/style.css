@@ -1,0 +1,27 @@
+.fa {
+    margin-right: 20px;
+}
+
+.bar-mat {
+    border-color: #b2b2b2;
+    background-color: #159588;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+    color: #444;
+}
+
+.title {
+    color: white;
+}
+
+.menu-icon {
+    color: white;
+}
+
+.ion-ios-search:before{
+    font-size: 1.25em !important;
+    color: white;
+}
+
+.card {
+    margin-bottom: -0.8em !important;
+}
