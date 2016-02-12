@@ -34,12 +34,21 @@ angular.module('app.routes', [])
 
 
 
-    .state('signup', {
-      url: '/signup',
-      templateUrl: 'templates/signup.html',
-      controller: 'signupCtrl'
-    })
+    // .state('kuizine.signup', {
+    //   url: '/signup',
+    //   templateUrl: 'templates/signup.html',
+    //   controller: 'signupCtrl'
+    // })
 
+    .state('kuizine.signup', {
+      url: '/signup',
+      views: {
+        'side-menu': {
+          templateUrl: 'templates/signup.html',
+          controller: 'signupCtrl'
+        }
+      }
+    })
 
 
 
