@@ -34,11 +34,6 @@ angular.module('app.routes', [])
 
 
 
-    // .state('kuizine.signup', {
-    //   url: '/signup',
-    //   templateUrl: 'templates/signup.html',
-    //   controller: 'signupCtrl'
-    // })
 
     .state('kuizine.signup', {
       url: '/signup',
