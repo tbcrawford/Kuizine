@@ -2,6 +2,9 @@
 
 # Changelog
 
+### 0.2.2
+* Changed back button on signup to nav button
+
 ### 0.2.1
 * Nav bar icon repositioned
 * Header font increased, made thinner
