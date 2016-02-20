@@ -1,24 +1,23 @@
 <ion-view title="Login">
     <ion-content overflow-scroll="true" padding="true" scroll="false" class="has-header">
-        <div class="spacer" style="width: 300px; height: 39px;"></div>
-        <form class="list">
-            <div class="list card">
-                <div class="item item-body">
-                    <form class="list">
-                        <label class="item item-input">
-                            <span class="input-label">Username</span>
-                            <input type="text" placeholder="Enter your username">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">Password</span>
-                            <input type="password" placeholder="Password">
-                        </label>
-                    </form>
-                </div>
+        <div class="list card">
+            <div class="item item-body">
+                <form class="list" ng-submit="submit()">
+                    <label class="item item-input">
+                        <span class="input-label">Username</span>
+                        <input type="text" name="username" placeholder="Username" ng-model="data.username">
+                    </label>
+                    <div class="spacer" style="width: 300px; height: 10px;"></div>
+                    <label class="item item-input">
+                        <span class="input-label">Password</span>
+                        <input type="password" name="password" placeholder="Password" ng-model="data.password">
+                    </label>
+                    <input class="button button-block button-positive" type="submit" name="submit" value="Log In">
+                </form>
+                <label ng-bind="response" style="color: red; text-align: center;"/>
             </div>
-            <div class="spacer" style="width: 300px; height: 31px;"></div>
-            <a href="#" onclick="window.open('/tabs', '_system', 'location=yes'); return false;" class="button button-stable button-block">Log in</a>
-            <a ui-sref="kuizine.signup" class="button button-positive button-clear button-block">Or create an account</a>
-        </form>
+        </div>
+        <div class="spacer" style="width: 300px; height: 20px;"></div>
+        <a ui-sref="kuizine.signup" class="button button-positive button-clear button-block">Or create an account</a>
     </ion-content>
 </ion-view>

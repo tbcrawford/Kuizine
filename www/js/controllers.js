@@ -1,7 +1,17 @@
 angular.module('app.controllers', [])
 
-.controller('loginCtrl', function($scope) {
-
+.controller('loginCtrl', function($scope, $http, $location) {
+      $scope.data = {};
+      $scope.submit = function() {
+        var link = 'http://csit.kutztown.edu/kuizine/application_files/login.php';
+        $http.post(link, {username : $scope.data.username, password : $scope.data.password}).then(function (res) {
+            $scope.response = res.data;
+            if ($scope.response == 'success') {
+              $scope.response = '';
+              $location.path('/home');
+            }
+        });
+    }
 })
 
 .controller('signupCtrl', function($scope) {
