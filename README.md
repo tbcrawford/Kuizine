@@ -2,6 +2,11 @@
 
 # Changelog
 
+## 0.3
+* Established connection with the database
+* Added primitive login functionality
+* Changed back button on home to nav button after login
+
 ### 0.2.2
 * Changed back button on signup to nav button
 
