@@ -2,6 +2,13 @@
 
 # Changelog
 
+### 0.3.1
+* UI Overhaul
+* New color - #ef5350 (Light Red)
+* Side menu modified to be comparable to User Interface Design Document
+* Side menu items now show the current page and show the page that is 'hovered' over
+* Attempt to fix header centering - currently fixed for iOS, an un-versioned push may come later to fix for Android
+
 ## 0.3
 * Established connection with the database
 * Added primitive login functionality

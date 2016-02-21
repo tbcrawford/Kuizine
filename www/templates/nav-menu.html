@@ -8,17 +8,17 @@
         </ion-nav-bar>
         <ion-nav-view name="side-menu"></ion-nav-view>
     </ion-side-menu-content>
-    <ion-side-menu side="left">
-        <ion-header-bar class="bar-mat">
+    <ion-side-menu side="left" class="side-menu-container">
+        <ion-header-bar class="bar-mat side-menu-style">
             <div class="title">Kuizine</div>
         </ion-header-bar>
-        <ion-content padding="false" class="side-menu-left has-header" <="" ion-content="">
+        <ion-content class="side-menu-left has-header">
             <ion-list>
-                <ion-item class="menu-font" ui-sref="kuizine.home" menu-close=""><i class="fa fa-home"></i>Home</ion-item>
-                <ion-item class="menu-font" ui-sref="kuizine.search" menu-close=""><i class="fa fa-search"></i>Search</ion-item>
-                <ion-item class="menu-font" ui-sref="kuizine.browse" menu-close=""><i class="fa fa-list"></i>Browse</ion-item>
-                <ion-item class="menu-font" ui-sref="kuizine.favorites" menu-close=""><i class="fa fa-star-o"></i>Favorites</ion-item>
-                <ion-item class="menu-font" ui-sref="kuizine.login" menu-close=""><i class="fa fa-user"></i>Login</ion-item>
+                <a ui-sref="kuizine.home" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-home"></i>Home</a>
+                <a ui-sref="kuizine.search" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-search"></i>Search</a>
+                <a ui-sref="kuizine.browse" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-list"></i>Browse</a>
+                <a ui-sref="kuizine.favorites" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-star-o"></i>Favorites</a>
+                <a ui-sref="kuizine.login" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-user"></i>Login</a>
             </ion-list>
         </ion-content>
     </ion-side-menu>
