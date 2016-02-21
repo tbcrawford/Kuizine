@@ -2,6 +2,11 @@
 
 # Changelog
 
+## 0.4
+* Added primitive browse functionality
+* Depending on login status, display either login or logout in nav menu
+* Centered and reworded error message on login page
+
 ### 0.3.1
 * UI Overhaul
 * New color - #ef5350 (Light Red)

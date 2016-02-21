@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-.controller('loginCtrl', function($scope, $http, $location) {
+.controller('loginCtrl', function($scope, $rootScope, $http, $location) {
       $scope.data = {};
       $scope.submit = function() {
         var link = 'http://csit.kutztown.edu/kuizine/application_files/login.php';
@@ -8,6 +8,7 @@ angular.module('app.controllers', [])
             $scope.response = res.data;
             if ($scope.response == 'success') {
               $scope.response = '';
+              $rootScope.username = $scope.data.username;
               $location.path('/home');
             }
         });
@@ -18,16 +19,19 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('browseCtrl', function($scope) {
-    var cards = [];
-    for (var i = 1; i <= 10; i++) {
-        var card = {
-            header: 'Category header ' + i,
-            description: 'Description for item ' + i
-        };
-        cards.push(card);
+.controller('browseCtrl', function($scope, $http) {
+  var cards = [];
+  var link = 'http://csit.kutztown.edu/kuizine/application_files/browse.php';
+  $http.post(link).then(function (res) {
+    for (var i = 0; i <= res.data.split.length; i++) {
+      var card = {
+        header: res.data.split('|')[i],
+        description: "Today's hours: ",
+      };
+      cards.push(card);
     }
     $scope.cards = cards;
+  });
 })
 
 .controller('favoritesCtrl', function($scope) {
