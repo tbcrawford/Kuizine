@@ -2,7 +2,9 @@
     margin-bottom: -12px !important;
 }
 
-
+.bar .bar-header .bar-stable {
+    background-color: #ef5350;
+}
 
 /* The following section modifies the header area.
 Looks bad when serving, good on devices */
@@ -27,7 +29,6 @@ Looks bad when serving, good on devices */
 
 .bar {
 	height: 64px !important;
-    /*padding: 0;*/
 }
 
 .has-header {
@@ -38,7 +39,11 @@ Looks bad when serving, good on devices */
     color: white;
     font-size: 20px;
     font-weight: 400;
-    /*padding: 0;*/
+}
+
+/* This should fix the issue that is related to android only! */
+.platform-android .bar .title {
+    line-height: 64px !important;
 }
 
 

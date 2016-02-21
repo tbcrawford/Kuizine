@@ -15,13 +15,19 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
     if(window.StatusBar) {
+        if (ionic.Platform.isAndroid()) {
+            StatusBar.backgroundColorByHexString("#e53935");
+        } else {
+            StatusBar.styleLightContent();
+        }
+
       // org.apache.cordova.statusbar required
     //   StatusBar.styleDefault();
-      StatusBar.overlaysWebView(true);
-      StatusBar.style(1); //Light
+    //   StatusBar.overlaysWebView(true);
+    //   StatusBar.style(1); //Light
     //   StatusBar.style(2); //Black, transulcent
     //   StatusBar.style(3); //Black, opaque
     }
-    $cordovaStatusbar.styleHex('#37474F');
+    // $cordovaStatusbar.styleHex('#ef5350');
   });
 });
