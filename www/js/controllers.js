@@ -12,8 +12,10 @@ angular.module('app.controllers', [])
   $scope.cards = RestaurantDisplayService.browseByName();
 })
 
-.controller('profileCtrl', function($scope) {
-
+.controller('profileCtrl', function($scope, $stateParams, RestaurantDisplayService) {
+  RestaurantDisplayService.getRestaurantInfo().then(function(response) {
+    $scope.profile = response;
+  });
 })
 
 .controller('favoritesCtrl', function($scope) {

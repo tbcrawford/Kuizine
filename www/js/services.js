@@ -42,7 +42,7 @@ angular.module('app.services', [])
 
 
 //
-.factory('RestaurantDisplayService', ['$http', function($http) {
+.factory('RestaurantDisplayService', ['$http', '$q', '$stateParams', function($http, $q, $stateParams) {
 
   //
   var restaurantDisplayService = {};
@@ -61,6 +61,34 @@ angular.module('app.services', [])
       }
     });
     return list;
+  }
+
+  restaurantDisplayService.getRestaurantInfo = function() {
+    var deferred = $q.defer();
+    var profile = {};
+
+    // TODO: Do this programmatically, this is obnoxious
+    $http.post('http://csit.kutztown.edu/kuizine/application_files/profile.php',
+    {restaurantId:$stateParams.restaurantId}).then(function (response) {
+        profile.restaurant_name = response.data.split('|')[0];
+    		profile.restaurant_address = response.data.split('|')[1];
+    		profile.restaurant_phone = response.data.split('|')[2];
+    		profile.restaurant_email = response.data.split('|')[3];
+    		profile.restaurant_website = response.data.split('|')[4];
+    		profile.restaurant_description = response.data.split('|')[5];
+    		profile.restaurant_menu_link = response.data.split('|')[6];
+    		profile.monday_hours = response.data.split('|')[7];
+    	  profile.tuesday_hours = response.data.split('|')[8];
+    		profile.wednesday_hours = response.data.split('|')[9];
+    		profile.thursday_hours = response.data.split('|')[10];
+    		profile.friday_hours = response.data.split('|')[11];
+    		profile.saturday_hours = response.data.split('|')[12];
+    		profile.sunday_hours = response.data.split('|')[13];
+        deferred.resolve(profile);
+        return profile;
+    });
+
+    return deferred.promise;
   }
 
   //
