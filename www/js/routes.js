@@ -86,8 +86,6 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
 
 
 
-
-
     .state('kuizine.search', {
       url: '/search',
       views: {
@@ -97,6 +95,20 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
         }
       }
     })
+
+
+
+
+    .state('kuizine.profile', {
+      url: '/profile?restaurantId',
+      views: {
+        'side-menu': {
+          templateUrl: 'templates/profile.html',
+          controller: 'profileCtrl'
+        }
+      }
+    })
+
 
 
     ;

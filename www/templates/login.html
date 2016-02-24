@@ -4,19 +4,19 @@
             <i class="fa fa-user jumbo-icon"></i>
         </div>
         <div class="login-form">
-            <form class="list list-inset" ng-submit="submit()">
+            <form class="list list-inset" ng-submit="login()">
                 <label class="item item-input login-input">
                     <i class="fa fa-user input-icon"></i>
-                    <input type="text" name="username" placeholder="username" ng-model="data.username">
+                    <input type="text" name="username" placeholder="username" ng-model="credentials.username">
                 </label>
                 <br>
                 <label class="item item-input login-input">
                     <i class="fa fa-unlock-alt input-icon"></i>
-                    <input type="password" name="password" placeholder="password" ng-model="data.password">
+                    <input type="password" name="password" placeholder="password" ng-model="credentials.password">
                 </label>
                 <br>
-                <div class="login-error">
-                    <label ng-bind="response"/>
+                <div class="login-error" ng-if="getLoginStatus()==false">
+                    <label>Incorrect username or password</label>
                 </div>
                 <div class="spacer"></div>
                 <div class="horizontal-center">
@@ -26,7 +26,7 @@
         </div>
         <div class="horizontal-center">
             <br>
-            Don't have an account?
+            <p>Don't have an account?<p>
             <a ui-sref="kuizine.signup" class="signup-button">Sign Up</a>
         </div>
     </ion-content>

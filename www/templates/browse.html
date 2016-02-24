@@ -2,7 +2,7 @@
     <ion-content>
         <div ng-repeat="card in cards">
             <div class="list card">
-                <a ui-sref="kuizine.home" class="item item-icon-left">
+                <a ui-sref="kuizine.profile({restaurantId: '{{ card.restaurantId }}'})" class="item item-icon-left">
                     <i class="icon ion-pizza"></i>
                     <h2>{{ card.header }}</h2>
                     <p>{{ card.description }}</p>

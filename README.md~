@@ -2,11 +2,8 @@
 
 # Changelog
 
-### 0.4.2
-* Modified controllers, now using angularjs factories instead
-* Tweaked Browse functionality, correctly links to profile page with appended http-get format 
-
 ### 0.4.1
+
 * Updated Login and Sign Up UI
 * Various UI tweaks, and CSS revisions made throughout
 
