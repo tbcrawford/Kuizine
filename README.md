@@ -15,7 +15,7 @@ This section will outline the naming conventions coding guidelines for each lang
 * Class names will follow "this-format"
 * CSS stylesheets will follow "this-format"
 * CSS styles shall be specified within an appropriate external file, not inline where possible.
-* CSS will be aligned using a package called (atom-alignment)[https://atom.io/packages/atom-alignment]
+* CSS will be aligned using a package called [atom-alignment](https://atom.io/packages/atom-alignment)
 * CSS should contain logical section headers using comment blocks
 
 ### PHP
