@@ -20,18 +20,18 @@ angular.module('app.controllers', [])
 })
 
 .controller('browseCtrl', function($scope, $http) {
-  var cards = [];
-  var link = 'http://csit.kutztown.edu/kuizine/application_files/browse.php';
-  $http.post(link).then(function (res) {
-    for (var i = 0; i <= res.data.split.length; i++) {
-      var card = {
-        header: res.data.split('|')[i],
-        description: "Today's hours: ",
-      };
-      cards.push(card);
-    }
-    $scope.cards = cards;
-  });
+    var cards = [];
+    var link = 'http://csit.kutztown.edu/kuizine/application_files/browse.php';
+    $http.post(link).then(function (res) {
+        for (var i = 0; i <= res.data.split.length; i++) {
+            var card = {
+                header: res.data.split('|')[i],
+                description: "Today's hours: ",
+            };
+            cards.push(card);
+        }
+        $scope.cards = cards;
+    });
 })
 
 .controller('favoritesCtrl', function($scope) {

@@ -1,8 +1,6 @@
-angular.module('app.routes', [])
+angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
 
-.config(function($stateProvider, $urlRouterProvider) {
-
-    // $ionicFilterBarConfigProvider.theme('calm');
+.config(function($stateProvider, $urlRouterProvider, $ionicFilterBarConfigProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -105,5 +103,6 @@ angular.module('app.routes', [])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/menu/home');
+  $ionicFilterBarConfigProvider.theme('assertive');
 
 });

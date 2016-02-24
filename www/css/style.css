@@ -2,15 +2,14 @@
     margin-bottom: -12px !important;
 }
 
-.bar .bar-header .bar-stable {
-    background-color: #ef5350;
-}
+/*.bar .bar-header .bar-stable {
+    background-color: #f44336;
+}*/
 
-/* The following section modifies the header area.
-Looks bad when serving, good on devices */
+/********************************* Header **********************************/
 
 .bar-mat {
-    background-color: #ef5350;
+    background-color: #f44336;
 }
 
 .ion-ios-search-strong:before{
@@ -48,13 +47,9 @@ Looks bad when serving, good on devices */
 
 
 
-/* The following section modifies the side menu*/
+/********************************* Side Menu **********************************/
 
-.fa-home,
-.fa-search,
-.fa-list,
-.fa-star-o,
-.fa-user {
+.nav-icon {
     margin-right: 20px;
     width: 28px;
     font-size: 24px;
@@ -71,18 +66,18 @@ Looks bad when serving, good on devices */
 
 .side-menu-left .active-item {
     background-color: #F1F1F1 !important;
-    background-image: linear-gradient(left, #ef5350, #ef5350 7px, transparent 7px, transparent 100%) !important;
-    background-image: -webkit-linear-gradient(left, #ef5350, #ef5350 7px, transparent 7px, transparent 100%) !important;
+    background-image: linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%) !important;
+    background-image: -webkit-linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%) !important;
 }
 
 .side-menu-left a:not(.item-divider):hover {
     background-color: #F1F1F1;
-    background-image: linear-gradient(left, #ef5350, #ef5350 7px, transparent 7px, transparent 100%);
-    background-image: -webkit-linear-gradient(left, #ef5350, #ef5350 7px, transparent 7px, transparent 100%);
+    background-image: linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%);
+    background-image: -webkit-linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%);
 }
 
 .active-item i {
-    color: #ef5350;
+    color: #f44336;
 }
 
 .nav-list-item {
@@ -92,4 +87,88 @@ Looks bad when serving, good on devices */
 
 .side-menu-container {
     background-color: #F9F9F9;
+}
+
+
+/******************************* Login page ***********************************/
+.login-content {
+    /*background-color: #f44336;*/
+}
+
+.spacer {
+    /*width: 100%;*/
+    height: 16px;
+}
+
+.login-input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #ffcdd2;
+}
+
+.input-icon {
+    margin-right: 10px;
+}
+
+.jumbo-icon {
+    font-size: 196px;
+    margin-top: 15%;
+    color: #f44336;
+}
+
+.item-input {
+    padding: 0 0 0 0;
+}
+
+.input-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #f44336;
+}
+
+input, input[placeholder] {
+    /*text-align: center;*/
+    font-size: 16px;
+    color: #505050;
+}
+
+.login-form .list {
+    width: 76%;
+    margin: 0 auto;
+    margin-top: 12%;
+}
+
+.horizontal-center {
+    text-align: center;
+}
+
+.login-button {
+    border-color: transparent;
+    background-color: #F44336;
+    color: #FFFFFF !important;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 64px;
+    -moz-border-radius: 34px;
+    -webkit-border-radius: 34px;
+    border-radius: 34px;
+}
+
+.signup-button {
+    color: #F44336 !important;
+    font-weight: 400 !important;
+    margin-right: 14px;
+    text-decoration: none;
+}
+
+.login-error {
+    color: red;
+    text-align: center;
+}
+
+/******************************* Sign up page *********************************/
+
+.jumbo-signup {
+    margin-top: 12%
 }

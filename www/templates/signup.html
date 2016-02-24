@@ -3,27 +3,32 @@
       <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
     </ion-nav-buttons>
     <ion-content overflow-scroll="true" padding="true" scroll="false" class="has-header">
-        <form class="list">
-            <ion-list>
-                <label class="item item-input">
-                    <span class="input-label">Name</span>
-                    <input type="text" placeholder="">
+
+        <!-- TODO: POSSIBLY REDESIGN - DO IN PHASE 2 -->
+
+        <div class="horizontal-center jumbo-signup">
+            <h1>Kuizine</h1>
+            <p>a style of cooking</p>
+        </div>
+
+        <div class="login-form">
+            <!-- TODO: ADD SIGNUP ABILITIES -->
+            <form class="list list-inset" ng-submit="">
+                <label class="item item-input login-input">
+                    <i class="fa fa-user input-icon"></i>
+                    <input type="text" name="username" placeholder="username" ng-model="data.username">
                 </label>
-                <label class="item item-input">
-                    <span class="input-label">Username</span>
-                    <input type="text" placeholder="">
+                <div class="spacer"></div>
+                <label class="item item-input login-input">
+                    <i class="fa fa-unlock-alt input-icon"></i>
+                    <input type="password" name="password" placeholder="password" ng-model="data.password">
                 </label>
-                <label class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input type="text" placeholder="">
-                </label>
-            </ion-list>
-            <button class="button button-stable button-block ">Sign up</button>
-        </form>
-    </ion-content>
-</ion-view> -->
-<!-- <ion-view title="Signup">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+                <br><br>
+                <div class="horizontal-center">
+                    <input class="login-button" type="submit" name="submit" value="Sign Up">
+                </div>
+            </form>
+        </div>
 
     </ion-content>
-</ion-view>
+</ion-view> -->

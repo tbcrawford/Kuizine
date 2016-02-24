@@ -2,6 +2,11 @@
 
 # Changelog
 
+### 0.4.1
+
+* Updated Login and Sign Up UI
+* Various UI tweaks, and CSS revisions made throughout
+
 ## 0.4
 * Added primitive browse functionality
 * Depending on login status, display either login or logout in nav menu

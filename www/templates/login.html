@@ -1,25 +1,33 @@
 <ion-view title="Login">
-    <ion-content overflow-scroll="true" padding="true" scroll="false" class="has-header">
-        <div class="list card">
-            <div class="item item-body">
-                <form class="list" ng-submit="submit()">
-                    <label class="item item-input">
-                        <span class="input-label">Username</span>
-                        <input type="text" name="username" placeholder="Username" ng-model="data.username">
-                    </label>
-                    <div class="spacer" style="width: 300px; height: 10px;"></div>
-                    <label class="item item-input">
-                        <span class="input-label">Password</span>
-                        <input type="password" name="password" placeholder="Password" ng-model="data.password">
-                    </label>
-                    <input class="button button-block button-positive" type="submit" name="submit" value="Log In">
-                </form>
-                <div style="color: red; text-align: center;">
-                  <label ng-bind="response"/>
-                </div>
-            </div>
+    <ion-content scroll="false" class="has-header">
+        <div class="horizontal-center">
+            <i class="fa fa-user jumbo-icon"></i>
         </div>
-        <div class="spacer" style="width: 300px; height: 20px;"></div>
-        <a ui-sref="kuizine.signup" class="button button-positive button-clear button-block">Or create an account</a>
+        <div class="login-form">
+            <form class="list list-inset" ng-submit="submit()">
+                <label class="item item-input login-input">
+                    <i class="fa fa-user input-icon"></i>
+                    <input type="text" name="username" placeholder="username" ng-model="data.username">
+                </label>
+                <br>
+                <label class="item item-input login-input">
+                    <i class="fa fa-unlock-alt input-icon"></i>
+                    <input type="password" name="password" placeholder="password" ng-model="data.password">
+                </label>
+                <br>
+                <div class="login-error">
+                    <label ng-bind="response"/>
+                </div>
+                <div class="spacer"></div>
+                <div class="horizontal-center">
+                    <input class="login-button" type="submit" name="submit" value="Login">
+                </div>
+            </form>
+        </div>
+        <div class="horizontal-center">
+            <br>
+            Don't have an account?
+            <a ui-sref="kuizine.signup" class="signup-button">Sign Up</a>
+        </div>
     </ion-content>
 </ion-view>
