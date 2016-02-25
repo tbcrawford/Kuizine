@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.kuizineskeleton778183" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.teamb.kuizine" version="0.4.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Kuizine</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Kuizine is a cross-platform mobile application designed for Android and iOS. It aggregates all of the restaurant options
+        within the town of Kutztown, PA and provides relevant information including menu, contact information, and address of a
+        restaurant in an intuitive, easy to use way. The application also provides logged in users the ability to save their favorite
+        restaurant for ease of access later.
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+    <author email="" href="https://github.com/tbcrawford/Kuizine">
+      Tyler Crawford, Nicholas Steely
     </author>
   <content src="index.html"/>
   <access origin="*"/>
