@@ -1,48 +1,48 @@
 .card {
-    margin-bottom: -12px !important;
+    margin-bottom        : -12px !important;
 }
 
 /*.bar .bar-header .bar-stable {
-    background-color: #f44336;
+    background-color     : #f44336;
 }*/
 
 /********************************* Header **********************************/
 
 .bar-mat {
-    background-color: #f44336;
+    background-color     : #f44336;
 }
 
 .ion-ios-search-strong:before{
-    font-size: 24px !important;
-    color: white;
+    font-size            : 24px !important;
+    color                : white;
 }
 
-.ion-navicon::before {
-    color: white;
-    margin-left: 14px;
+.ion-navicon:before {
+    color                : white;
+    margin-left          : 14px;
 }
 
 .button-clear {
-    max-height: none; /*Don't tell me how high I can go!*/
+    max-height           : none; /*Don't tell me how high I can go!*/
 }
 
 .bar {
-	height: 64px !important;
+	height               : 64px !important;
 }
 
 .has-header {
-	top: 64px !important;
+	top                  : 64px !important;
 }
 
 .bar .title {
-    color: white;
-    font-size: 20px;
-    font-weight: 400;
+    color                : white;
+    font-size            : 20px;
+    font-weight          : 400;
 }
 
 /* This should fix the issue that is related to android only! */
 .platform-android .bar .title {
-    line-height: 64px !important;
+    line-height          : 64px !important;
 }
 
 
@@ -50,125 +50,120 @@
 /********************************* Side Menu **********************************/
 
 .nav-icon {
-    margin-right: 20px;
-    width: 28px;
-    font-size: 24px;
-    vertical-align: top;
+    margin-right         : 20px;
+    width                : 28px;
+    font-size            : 24px;
+    vertical-align       : top;
 }
 
 .side-menu-style {
-    height: 180px !important;
+    height               : 180px !important;
 }
 
 .side-menu-left.has-header {
-    top: 186px !important;
+    top                  : 186px !important;
 }
 
 .side-menu-left .active-item {
-    background-color: #F1F1F1 !important;
-    background-image: linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%) !important;
-    background-image: -webkit-linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%) !important;
+    background-color     : #F1F1F1 !important;
+    background-image     : linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%) !important;
+    background-image     : -webkit-linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%) !important;
 }
 
 .side-menu-left a:not(.item-divider):hover {
-    background-color: #F1F1F1;
-    background-image: linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%);
-    background-image: -webkit-linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%);
+    background-color     : #F1F1F1;
+    background-image     : linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%);
+    background-image     : -webkit-linear-gradient(left, #f44336, #f44336 7px, transparent 7px, transparent 100%);
 }
 
 .active-item i {
-    color: #f44336;
+    color                : #f44336;
 }
 
 .nav-list-item {
-    border: none;
-    background-color: inherit;
+    border               : none;
+    background-color     : inherit;
 }
 
 .side-menu-container {
-    background-color: #F9F9F9;
+    background-color     : #F9F9F9;
 }
 
 
 /******************************* Login page ***********************************/
 .login-content {
-    /*background-color: #f44336;*/
-}
-
-.spacer {
-    /*width: 100%;*/
-    height: 16px;
+    /*background-color   : #f44336;*/
 }
 
 .login-input {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: #ffcdd2;
+    border-top           : none;
+    border-left          : none;
+    border-right         : none;
+    border-color         : #ffcdd2;
 }
 
 .input-icon {
-    margin-right: 10px;
+    margin-right         : 10px;
 }
 
 .jumbo-icon {
-    font-size: 196px;
-    margin-top: 15%;
-    color: #f44336;
+    font-size            : 196px;
+    margin-top           : 40px;
+    color                : #f44336;
 }
 
 .item-input {
-    padding: 0 0 0 0;
+    padding              : 0;
 }
 
 .input-label {
-    font-size: 12px;
-    font-weight: 400;
-    color: #f44336;
+    font-size            : 12px;
+    font-weight          : 400;
+    color                : #f44336;
 }
 
 input, input[placeholder] {
-    /*text-align: center;*/
-    font-size: 16px;
-    color: #505050;
+    /*text-align         : center;*/
+    font-size            : 16px;
+    color                : #505050;
 }
 
 .login-form .list {
-    width: 76%;
-    margin: 0 auto;
-    margin-top: 12%;
+    width                : 270px;
+    margin               : 0 auto;
+    margin-top           : 30px;
 }
 
 .horizontal-center {
-    text-align: center;
+    text-align           : center;
 }
 
 .login-button {
-    border-color: transparent;
-    background-color: #F44336;
-    color: #FFFFFF !important;
-    font-size: 16px;
-    font-weight: 400;
-    padding: 10px 64px;
-    -moz-border-radius: 34px;
+    border-color         : transparent;
+    background-color     : #F44336;
+    color                : #FFFFFF !important;
+    font-size            : 16px;
+    font-weight          : 400;
+    padding              : 10px 64px;
+    -moz-border-radius   : 34px;
     -webkit-border-radius: 34px;
-    border-radius: 34px;
+    border-radius        : 34px;
 }
 
 .signup-button {
-    color: #F44336 !important;
-    font-weight: 400 !important;
-    margin-right: 14px;
-    text-decoration: none;
+    color                : #F44336 !important;
+    font-weight          : 400 !important;
+    margin-right         : 14px;
+    text-decoration      : none;
 }
 
 .login-error {
-    color: red;
-    text-align: center;
+    color                : red;
+    text-align           : center;
 }
 
 /******************************* Sign up page *********************************/
 
 .jumbo-signup {
-    margin-top: 12%
+    margin-top           : 60px;
 }
