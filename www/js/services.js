@@ -33,6 +33,11 @@ angular.module('app.services', [])
     return username;
   }
 
+  authenticationService.logout = function() {
+    loggedIn = undefined;
+    username = undefined;
+  }
+
   //
   return authenticationService;
 }])

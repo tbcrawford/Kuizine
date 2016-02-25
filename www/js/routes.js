@@ -8,71 +8,12 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-
-
-    .state('kuizine.login', {
-      url: '/login',
-      views: {
-        'side-menu': {
-          templateUrl: 'templates/login.html',
-          controller: 'loginCtrl'
-        }
-      }
-    })
-
-
-
-
     .state('kuizine', {
       url: '/menu',
       abstract:true,
-      templateUrl: 'templates/nav-menu.html'
+      templateUrl: 'templates/nav-menu.html',
+      controller: 'navmenuCtrl'
     })
-
-
-
-
-
-    .state('kuizine.signup', {
-      url: '/signup',
-      views: {
-        'side-menu': {
-          templateUrl: 'templates/signup.html',
-          controller: 'signupCtrl'
-        }
-      }
-    })
-
-
-
-
-    .state('kuizine.browse', {
-      url: '/browse',
-      views: {
-        'side-menu': {
-          templateUrl: 'templates/browse.html',
-          controller: 'browseCtrl'
-        }
-      }
-    })
-
-
-
-
-
-    .state('kuizine.favorites', {
-      url: '/favorites',
-      views: {
-        'side-menu': {
-          templateUrl: 'templates/favorites.html',
-          controller: 'favoritesCtrl'
-        }
-      }
-    })
-
-
-
-
 
     .state('kuizine.home', {
       url: '/home',
@@ -84,8 +25,6 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
       }
     })
 
-
-
     .state('kuizine.search', {
       url: '/search',
       views: {
@@ -96,8 +35,15 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
       }
     })
 
-
-
+    .state('kuizine.browse', {
+      url: '/browse',
+      views: {
+        'side-menu': {
+          templateUrl: 'templates/browse.html',
+          controller: 'browseCtrl'
+        }
+      }
+    })
 
     .state('kuizine.profile', {
       url: '/profile?restaurantId',
@@ -109,9 +55,35 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
       }
     })
 
+    .state('kuizine.favorites', {
+      url: '/favorites',
+      views: {
+        'side-menu': {
+          templateUrl: 'templates/favorites.html',
+          controller: 'favoritesCtrl'
+        }
+      }
+    })
 
+    .state('kuizine.login', {
+      url: '/login',
+      views: {
+        'side-menu': {
+          templateUrl: 'templates/login.html',
+          controller: 'loginCtrl'
+        }
+      }
+    })
 
-    ;
+    .state('kuizine.signup', {
+      url: '/signup',
+      views: {
+        'side-menu': {
+          templateUrl: 'templates/signup.html',
+          controller: 'signupCtrl'
+        }
+      }
+    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/menu/home');

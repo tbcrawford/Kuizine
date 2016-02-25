@@ -33,39 +33,45 @@ This section will outline the naming conventions coding guidelines for each lang
 
 ## Changelog
 
-### 0.4.3
+#### 0.4.4
+* Added logout functionality
+* Revised routes.js
+* Revised controllers, factories
+* Include username in nav menu and reintroduced logout option in nav menu
+
+#### 0.4.3
 * Added primitive restaurant profile view functionality
 * Added Naming Conventions and Coding Guidelines section to README
 
-### 0.4.2
+#### 0.4.2
 * Modified controllers, now using AngularJS factories instead
 * Tweaked Browse functionality, correctly links to profile page with appended http-get format
 
-### 0.4.1
+#### 0.4.1
 * Updated Login and Sign Up UI
 * Various UI tweaks, and CSS revisions made throughout
 
-## 0.4
+### 0.4
 * Added primitive browse functionality
 * Depending on login status, display either login or logout in nav menu
 * Centered and reworded error message on login page
 
-### 0.3.1
+#### 0.3.1
 * UI Overhaul
 * New color - #ef5350 (Light Red)
 * Side menu modified to be comparable to User Interface Design Document
 * Side menu items now show the current page and show the page that is 'hovered' over
 * Attempt to fix header centering - currently fixed for iOS, an un-versioned push may come later to fix for Android
 
-## 0.3
+### 0.3
 * Established connection with the database
 * Added primitive login functionality
 * Changed back button on home to nav button after login
 
-### 0.2.2
+#### 0.2.2
 * Changed back button on signup to nav button
 
-### 0.2.1
+#### 0.2.1
 * Nav bar icon repositioned
 * Header font increased, made thinner
 * Header color changed to match backend
@@ -73,11 +79,11 @@ This section will outline the naming conventions coding guidelines for each lang
 * Side-menu spacing between icons and text positioned correctly
 * Side-menu font size changed, lightened weight
 
-## 0.2
+### 0.2
 * Template Search functionality added - Waiting for database info to query
 * Template Browse functionality added - Waiting for database info to query categories
 
-## 0.1
+### 0.1
 * Base structure created
 * Swipe-menu added
 * Home, Search, Browse, Favorites, Login, and Signup page templates were added

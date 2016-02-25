@@ -11,6 +11,7 @@
     <ion-side-menu side="left" class="side-menu-container">
         <ion-header-bar class="bar-mat side-menu-style">
             <div class="title">Kuizine</div>
+            <p ng-if="getLoginStatus()">You are signed in as {{getUsername()}}</p>
         </ion-header-bar>
         <ion-content class="side-menu-left has-header">
             <ion-list class="nav-icons">
@@ -18,7 +19,8 @@
                 <a ui-sref="kuizine.search" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-search nav-icon"></i>Search</a>
                 <a ui-sref="kuizine.browse" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-list nav-icon"></i>Browse</a>
                 <a ui-sref="kuizine.favorites" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-star-o nav-icon"></i>Favorites</a>
-                <a ui-sref="kuizine.login" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-user nav-icon"></i>Login</a>
+                <a ui-sref="kuizine.login" ui-sref-active="active-item" class="item nav-list-item" menu-close ng-if="!getLoginStatus()"><i class="fa fa-user nav-icon"></i>Login</a>
+                <a ui-sref="kuizine.home" ui-sref-active="active-item" class="item nav-list-item" ng-click="logout()" menu-close ng-if="getLoginStatus()"><i class="fa fa-user nav-icon"></i>Logout</a>
             </ion-list>
         </ion-content>
     </ion-side-menu>
