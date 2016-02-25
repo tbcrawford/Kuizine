@@ -1,7 +1,10 @@
 {
   "name": "Kuizine",
-  "version": "1.1.1",
-  "description": "Kuizine: An Ionic project",
+  "version": "0.4.3",
+  "description": "Kuizine is a cross-platform mobile application designed that aggregates all
+  of the restaurant options within the town of Kutztown, PA and provides relevant information
+  including menu, contact information, and address of a restaurant in an intuitive,
+  easy to use way.",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
