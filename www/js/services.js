@@ -2,7 +2,6 @@ angular.module('app.services', [])
 
 //
 .factory('AuthenticationService', ['$http', '$q', '$location', function($http, $q, $location) {
-
   //
   var authenticationService = {};
   var username;
@@ -33,6 +32,7 @@ angular.module('app.services', [])
     return username;
   }
 
+  //
   authenticationService.logout = function() {
     loggedIn = undefined;
     username = undefined;
@@ -43,57 +43,66 @@ angular.module('app.services', [])
 }])
 
 
-
-
-
 //
 .factory('RestaurantDisplayService', ['$http', '$q', '$stateParams', function($http, $q, $stateParams) {
-
   //
   var restaurantDisplayService = {};
 
   //
-  restaurantDisplayService.browseByName = function() {
-    var list = [];
-    $http.post('http://csit.kutztown.edu/kuizine/application_files/browse.php').then(function (res) {
+  restaurantDisplayService.getRestaurantsList = function() {
+    //
+    var restaurantsList = [];
+
+    //
+    $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurants_list.php').then(function (res) {
       for (var i = 0; i <= res.data.split.length+2; i+=2) {
         var card = {
           header: res.data.split('|')[i],
           restaurantId: res.data.split('|')[i+1],
-          description: "Today's hours: ",
+          hours: "Today's hours: "
         };
-        list.push(card);
+        restaurantsList.push(card);
       }
     });
-    return list;
+
+    //
+    return restaurantsList;
   }
 
-  restaurantDisplayService.getRestaurantInfo = function() {
+  //
+  restaurantDisplayService.getRestaurantProfile = function() {
+    //
     var deferred = $q.defer();
     var profile = {};
 
-    // TODO: Do this programmatically, this is obnoxious
-    $http.post('http://csit.kutztown.edu/kuizine/application_files/profile.php',
+    //
+    $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php',
     {restaurantId:$stateParams.restaurantId}).then(function (response) {
-        profile.restaurant_name = response.data.split('|')[0];
-    		profile.restaurant_address = response.data.split('|')[1];
-    		profile.restaurant_phone = response.data.split('|')[2];
-    		profile.restaurant_email = response.data.split('|')[3];
-    		profile.restaurant_website = response.data.split('|')[4];
-    		profile.restaurant_description = response.data.split('|')[5];
-    		profile.restaurant_menu_link = response.data.split('|')[6];
-    		profile.monday_hours = response.data.split('|')[7];
-    	  profile.tuesday_hours = response.data.split('|')[8];
-    		profile.wednesday_hours = response.data.split('|')[9];
-    		profile.thursday_hours = response.data.split('|')[10];
-    		profile.friday_hours = response.data.split('|')[11];
-    		profile.saturday_hours = response.data.split('|')[12];
-    		profile.sunday_hours = response.data.split('|')[13];
+        profile.restaurantName = response.data.split('|')[0];
+    		profile.restaurantAddress = response.data.split('|')[1];
+    		profile.restaurantPhone = response.data.split('|')[2];
+    		profile.restaurantEmail = response.data.split('|')[3];
+    		profile.restaurantWebsite = response.data.split('|')[4];
+    		profile.restaurantDescription = response.data.split('|')[5];
+    		profile.restaurantMenuLink = response.data.split('|')[6];
+        profile.restaurantHours = [];
+        for (var i = 0; i < 7; i++) {
+          profile.restaurantHours.push(response.data.split('|')[i+7]);
+        }
+
+        //
         deferred.resolve(profile);
         return profile;
     });
 
+    //
     return deferred.promise;
+  }
+
+  //
+  restaurantDisplayService.getDay = function() {
+    var date = new Date();
+    return date.getDay();
   }
 
   //

@@ -1,11 +1,11 @@
 <ion-view view-title="Browse" ng-controller="browseCtrl">
     <ion-content>
-        <div ng-repeat="card in cards">
+        <div ng-repeat="card in restaurantsList">
             <div class="list card">
                 <a ui-sref="kuizine.profile({restaurantId: '{{ card.restaurantId }}'})" class="item item-icon-left">
                     <i class="icon ion-pizza"></i>
                     <h2>{{ card.header }}</h2>
-                    <p>{{ card.description }}</p>
+                    <p>{{ card.hours }}</p>
                 </a>
             </div>
         </div>

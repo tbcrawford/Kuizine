@@ -1,19 +1,12 @@
 <ion-view title="Restaurant Profile">
     <ion-content padding="true" scroll="false" class="has-header">
-        <p>{{profile.restaurant_name}}</p>
-    		<p>{{profile.restaurant_address}}</p>
-    		<p>{{profile.restaurant_phone}}</p>
-    		<p>{{profile.restaurant_email}}</p>
-    		<p>{{profile.restaurant_website}}</p>
-    		<p>{{profile.restaurant_description}}</p>
-    		<p>{{profile.restaurant_menu_link}}</p>
-        <!-- TODO: make the following an array-->
-    		<p>{{profile.monday_hours}}</p>
-    	  <p>{{profile.tuesday_hours}}</p>
-    		<p>{{profile.wednesday_hours}}</p>
-    		<p>{{profile.thursday_hours}}</p>
-    		<p>{{profile.friday_hours}}</p>
-    		<p>{{profile.saturday_hours}}</p>
-    		<p>{{profile.sunday_hours}}</p>
+        <p>{{profile.restaurantName}}</p>
+    		<p>{{profile.restaurantAddress}}</p>
+    		<p>{{profile.restaurantPhone}}</p>
+    		<p>{{profile.restaurantEmail}}</p>
+    		<p>{{profile.restaurantWebsite}}</p>
+    		<p>{{profile.restaurantDescription}}</p>
+    		<p>{{profile.restaurantMenuLink}}</p>
+    		<p>{{profile.restaurantHours[getDay()]}}</p>
     </ion-content>
 </ion-view>

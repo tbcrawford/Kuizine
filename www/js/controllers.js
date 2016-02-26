@@ -22,14 +22,17 @@ angular.module('app.controllers', [])
 })
 
 .controller('browseCtrl', function($scope, RestaurantDisplayService) {
-  $scope.cards = RestaurantDisplayService.browseByName();
+  $scope.restaurantsList = RestaurantDisplayService.getRestaurantsList();
 })
 
 //
-.controller('profileCtrl', function($scope, $stateParams, RestaurantDisplayService) {
-  RestaurantDisplayService.getRestaurantInfo().then(function(response) {
+.controller('profileCtrl', function($scope, RestaurantDisplayService) {
+  RestaurantDisplayService.getRestaurantProfile().then(function(response) {
     $scope.profile = response;
   });
+  $scope.getDay = function() {
+    return RestaurantDisplayService.getDay();
+  }
 })
 
 //
