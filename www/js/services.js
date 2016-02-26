@@ -9,9 +9,13 @@ angular.module('app.services', [])
 
   //
   authenticationService.login = function(user, pass) {
-    $http.post('http://csit.kutztown.edu/kuizine/application_files/login.php',
-    {username: user, password: pass}).then(function (res) {
-      if (res.data == "AUTH-SUCCESS") {
+    //
+    var deferred = $q.defer();
+
+    //
+    $http.post('http://csit.kutztown.edu/kuizine/application_files/login.php', {username: user, password: pass})
+    .then(function (response) {
+      if (response.data == "AUTH-SUCCESS") {
         loggedIn = true;
         username = user;
         $location.path('/home');
@@ -20,6 +24,10 @@ angular.module('app.services', [])
         loggedIn = false;
       }
     });
+
+    //
+    deferred.resolve();
+    return deferred.promise;
   }
 
   //
@@ -43,6 +51,7 @@ angular.module('app.services', [])
 }])
 
 
+
 //
 .factory('RestaurantDisplayService', ['$http', '$q', '$stateParams', function($http, $q, $stateParams) {
   //
@@ -51,22 +60,28 @@ angular.module('app.services', [])
   //
   restaurantDisplayService.getRestaurantsList = function() {
     //
+    var deferred = $q.defer();
     var restaurantsList = [];
 
     //
-    $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurants_list.php').then(function (res) {
-      for (var i = 0; i <= res.data.split.length+2; i+=2) {
+    $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurants_list.php', {dayOfWeek: restaurantDisplayService.getDay()})
+    .then(function (response) {
+      for (var i = 0; i < response.data.split('|').length-1; i+=3) {
         var card = {
-          header: res.data.split('|')[i],
-          restaurantId: res.data.split('|')[i+1],
-          hours: "Today's hours: "
+          header: response.data.split('|')[i],
+          restaurantId: response.data.split('|')[i+1],
+          hours: "Today's hours: " + response.data.split('|')[i+2]
         };
         restaurantsList.push(card);
       }
+
+      //
+      deferred.resolve(restaurantsList)
+      return restaurantsList;
     });
 
     //
-    return restaurantsList;
+    return deferred.promise;
   }
 
   //

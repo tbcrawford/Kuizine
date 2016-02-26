@@ -21,8 +21,11 @@ angular.module('app.controllers', [])
 .controller('searchCtrl', function($scope) {
 })
 
+//
 .controller('browseCtrl', function($scope, RestaurantDisplayService) {
-  $scope.restaurantsList = RestaurantDisplayService.getRestaurantsList();
+  RestaurantDisplayService.getRestaurantsList().then(function(response) {
+    $scope.restaurantsList = response;
+  });
 })
 
 //
@@ -43,7 +46,8 @@ angular.module('app.controllers', [])
 .controller('loginCtrl', function($scope, AuthenticationService) {
   $scope.credentials = {};
   $scope.login = function() {
-    AuthenticationService.login($scope.credentials.username, $scope.credentials.password);
+    AuthenticationService.login($scope.credentials.username, $scope.credentials.password).then(function(response) {
+    });
   }
   $scope.getLoginStatus = function() {
     return AuthenticationService.getLoginStatus();
