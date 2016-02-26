@@ -1,5 +1,5 @@
 # Kuizine
-Kuizine is a cross-platform mobile application designed for Android and iOS. It aggregates all of the restaurant options within the town of Kutztown, PA and provides relevant information including menu, contact information, and address of a restaurant in an intuitive, easy to use way. The application also provides logged in users the ability to save their favorite restaurant for ease of access later. 
+Kuizine is a cross-platform mobile application designed for Android and iOS. It aggregates all of the restaurant options within the town of Kutztown, PA and provides relevant information including menu, contact information, and address of a restaurant in an intuitive, easy to use way. The application also provides logged in users the ability to save their favorite restaurant for ease of access later.
 
 ## Naming Conventions and Coding Guidelines
 This section will outline the naming conventions coding guidelines for each language used in the development of this app.
@@ -32,6 +32,10 @@ This section will outline the naming conventions coding guidelines for each lang
 
 
 ## Changelog
+
+#### 0.4.5
+* Added primitive restaurant profile view
+* Minor css revisions
 
 #### 0.4.4
 * Added logout functionality

@@ -2,10 +2,6 @@
     margin-bottom        : -12px !important;
 }
 
-/*.bar .bar-header .bar-stable {
-    background-color     : #f44336;
-}*/
-
 /********************************* Header **********************************/
 
 .bar-mat {
@@ -166,4 +162,51 @@ input, input[placeholder] {
 
 .jumbo-signup {
     margin-top           : 60px;
+}
+
+/******************************* Profile page *********************************/
+
+.circle {
+    margin               : 0 auto;
+    width                : 140px;
+    height               : 140px;
+    -webkit-border-radius: 70px;
+    -moz-border-radius   : 70px;
+    border-radius        : 70px;
+    background           : #CCCCCC;
+}
+
+.name {
+    color                : #444444;
+    font-size            : 30px;
+    font-weight          : 300;
+    margin-top           : 16px;
+}
+
+.profile-info {
+    color                : #444444;
+    font-size            : 12px;
+    line-height          : 16px;
+    margin               : 0 auto;
+    text-align           : center;
+    width                : 260px;
+}
+
+.card-profile {
+    margin-left          : 30px;
+    margin-right         : 30px;
+}
+
+.card-profile .item {
+    font-size            : 10pt;
+}
+
+.item.item-divider {
+    background           : #F44336;
+    color                : white;
+}
+
+.icon.fa {
+    font-size            : 18pt;
+    margin-top           : 2px;
 }

@@ -94,12 +94,12 @@ angular.module('app.services', [])
     $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php',
     {restaurantId:$stateParams.restaurantId}).then(function (response) {
         profile.restaurantName = response.data.split('|')[0];
-    		profile.restaurantAddress = response.data.split('|')[1];
-    		profile.restaurantPhone = response.data.split('|')[2];
-    		profile.restaurantEmail = response.data.split('|')[3];
-    		profile.restaurantWebsite = response.data.split('|')[4];
-    		profile.restaurantDescription = response.data.split('|')[5];
-    		profile.restaurantMenuLink = response.data.split('|')[6];
+		profile.restaurantAddress = response.data.split('|')[1];
+		profile.restaurantPhone = response.data.split('|')[2];
+		profile.restaurantEmail = response.data.split('|')[3];
+		profile.restaurantWebsite = response.data.split('|')[4];
+		profile.restaurantDescription = response.data.split('|')[5];
+		profile.restaurantMenuLink = response.data.split('|')[6];
         profile.restaurantHours = [];
         for (var i = 0; i < 7; i++) {
           profile.restaurantHours.push(response.data.split('|')[i+7]);

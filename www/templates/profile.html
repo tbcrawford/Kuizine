@@ -1,12 +1,37 @@
-<ion-view title="Restaurant Profile">
-    <ion-content padding="true" scroll="false" class="has-header">
-        <p>{{profile.restaurantName}}</p>
-    		<p>{{profile.restaurantAddress}}</p>
-    		<p>{{profile.restaurantPhone}}</p>
-    		<p>{{profile.restaurantEmail}}</p>
-    		<p>{{profile.restaurantWebsite}}</p>
-    		<p>{{profile.restaurantDescription}}</p>
-    		<p>{{profile.restaurantMenuLink}}</p>
-    		<p>{{profile.restaurantHours[getDay()]}}</p>
+<ion-view view-title="Restaurant Profile">
+    <ion-content has-header="true" has-tabs="true" style="bottom: 49px;">
+        <br>
+        <div class="circle"></div>
+        <div class="card card-profile">
+            <div class="item item-divider">
+                Description
+            </div>
+            <div class="item item-text-wrap">
+                {{profile.restaurantDescription}}
+            </div>
+        </div>
+        <div class="card card-profile">
+            <div class="item item-divider">
+                Address
+            </div>
+            <div class="item item-text-wrap">
+                {{profile.restaurantAddress}}
+            </div>
+        </div>
+        <br />
     </ion-content>
+    <div class="tabs tabs-icon-top">
+        <a class="tab-item">
+            <i class="icon fa fa-phone"></i>Call
+        </a>
+        <a class="tab-item">
+            <i class="icon fa fa-cutlery"></i>Menu
+        </a>
+        <a class="tab-item">
+            <i class="icon fa fa-globe"></i>Website
+        </a>
+        <a class="tab-item">
+            <i class="icon fa fa-at"></i>Contact
+        </a>
+    </div>
 </ion-view>
