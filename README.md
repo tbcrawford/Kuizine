@@ -33,6 +33,12 @@ This section will outline the naming conventions coding guidelines for each lang
 
 ## Changelog
 
+#### 0.4.6
+* Added home page view
+* Fixed logout
+* Various UI tweaks, and CSS revisions made throughout
+* New color - #477d9f (blue)
+
 #### 0.4.5
 * Added primitive restaurant profile view
 * Minor css revisions
