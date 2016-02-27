@@ -12,9 +12,6 @@ angular.module('app.controllers', [])
   $scope.getUsername = function() {
     return AuthenticationService.getUsername();
   }
-  $scope.logout = function() {
-    return AuthenticationService.logout();
-  }
 })
 
 //
@@ -23,16 +20,20 @@ angular.module('app.controllers', [])
 
 //
 .controller('browseCtrl', function($scope, RestaurantDisplayService) {
-  RestaurantDisplayService.getRestaurantsList().then(function(response) {
-    $scope.restaurantsList = response;
-  });
+  $scope.getRestaurantsList = function() {
+    RestaurantDisplayService.getRestaurantsList().then(function(response) {
+      $scope.restaurantsList = response;
+    });
+  }
 })
 
 //
 .controller('profileCtrl', function($scope, RestaurantDisplayService) {
-  RestaurantDisplayService.getRestaurantProfile().then(function(response) {
-    $scope.profile = response;
-  });
+  $scope.getRestaurantProfile = function() {
+    RestaurantDisplayService.getRestaurantProfile().then(function(response) {
+      $scope.profile = response;
+    });
+  }
   $scope.getDay = function() {
     return RestaurantDisplayService.getDay();
   }
@@ -55,6 +56,13 @@ angular.module('app.controllers', [])
   $scope.getUsername = function() {
     return AuthenticationService.getUsername();
   }
+  $scope.logout = function() {
+    return AuthenticationService.logout();
+  }
+})
+
+//
+.controller('logoutCtrl', function($scope, AuthenticationService) {
   $scope.logout = function() {
     return AuthenticationService.logout();
   }

@@ -2,7 +2,7 @@
     margin-bottom        : -12px !important;
 }
 
-/********************************* Header **********************************/
+/*********************************** Header ***********************************/
 
 .bar-mat {
     background-color     : #f44336;
@@ -41,9 +41,7 @@
     line-height          : 64px !important;
 }
 
-
-
-/********************************* Side Menu **********************************/
+/********************************** Side Menu *********************************/
 
 .nav-icon {
     margin-right         : 20px;
@@ -85,8 +83,27 @@
     background-color     : #F9F9F9;
 }
 
+.logo {
+  color                  : #FFFFFF;
+  margin                 : 0 auto;
+  padding-top            : 20px;
+  text-align             : center;
+}
 
-/******************************* Login page ***********************************/
+
+/******************************** Browse page *********************************/
+
+.restaurant-list-item {
+    padding-top          : 15px;
+    padding-bottom       : 15px;
+}
+
+.card-header, .card-hours {
+    padding-left         : 10px;
+}
+
+/********************************* Login page *********************************/
+
 .login-content {
     /*background-color   : #f44336;*/
 }
@@ -158,13 +175,13 @@ input, input[placeholder] {
     text-align           : center;
 }
 
-/******************************* Sign up page *********************************/
+/******************************** Signup page *********************************/
 
 .jumbo-signup {
     margin-top           : 60px;
 }
 
-/******************************* Profile page *********************************/
+/******************************** Profile page ********************************/
 
 .circle {
     margin               : 0 auto;
