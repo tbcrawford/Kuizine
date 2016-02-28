@@ -40,6 +40,12 @@ angular.module('app.controllers', [])
     $scope.getDay = function() {
         return RestaurantDisplayService.getDay();
     }
+    $scope.openMenuLink = function() {
+        window.open($scope.profile.restaurantMenuLink, '_system', 'location=yes');
+    }
+    $scope.openWebsiteLink = function() {
+        window.open($scope.profile.restaurantWebsite, '_system', 'location=yes');
+    }
 })
 
 //

@@ -1,10 +1,7 @@
 {
   "name": "Kuizine",
   "version": "0.4.6",
-  "description": "Kuizine is a cross-platform mobile application designed that aggregates all
-  of the restaurant options within the town of Kutztown, PA and provides relevant information
-  including menu, contact information, and address of a restaurant in an intuitive,
-  easy to use way.",
+  "description": "Kuizine is a cross-platform mobile application designed that aggregates all of the restaurant options within the town of Kutztown, PA and provides relevant information including menu, contact information, and address of a restaurant in an intuitive, easy to use way.",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -23,20 +20,11 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
+    "cordova-plugin-inappbrowser",
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
     "ios",
-    "android",
-    {
-      "platform": "android",
-      "version": "",
-      "locator": "android"
-    },
-    {
-      "platform": "ios",
-      "version": "",
-      "locator": "ios"
-    }
+    "android"
   ]
 }

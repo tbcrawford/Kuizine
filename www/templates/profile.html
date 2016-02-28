@@ -18,18 +18,19 @@
             </div>
             <div class="item item-text-wrap">
                 {{profile.restaurantAddress}}
+                '{{profile.restaurantMenuLink}}'
             </div>
         </div>
         <br />
     </ion-content>
     <div class="tabs tabs-icon-top">
-        <a class="tab-item">
+        <a href="tel:{{profile.restaurantPhone}}"class="tab-item">
             <i class="icon fa fa-phone"></i>Call
         </a>
-        <a class="tab-item">
+        <a class="tab-item" ng-click="openMenuLink()">
             <i class="icon fa fa-cutlery"></i>Menu
         </a>
-        <a class="tab-item">
+        <a class="tab-item" ng-click="openWebsiteLink()">
             <i class="icon fa fa-globe"></i>Website
         </a>
         <a class="tab-item">
