@@ -3,28 +3,28 @@
 }
 
 .bar.bar-calm {
-  border-color: #5c8faf;
-  background-color: #477d9f;
-
-  background-image: linear-gradient(0deg, #5c8faf, #5c8faf 50%, transparent 50%);
-  color: #fff; }
+  border-color           : #5c8faf;
+  background-color       : #477d9f;
+  background-image       : linear-gradient(0deg, #5c8faf, #5c8faf 50%, transparent 50%);
+  color                  : #fff;
+}
 .bar.bar-calm .title {
-    color: #fff;
+    color                : #fff;
 }
 .bar.bar-calm.bar-footer {
-    background-image: linear-gradient(180deg, #5c8faf, #5c8faf 50%, transparent 50%);
+    background-image     : linear-gradient(180deg, #5c8faf, #5c8faf 50%, transparent 50%);
 }
 
 .previous-title {
-    color: white;
+    color                : white;
 }
 
 .ion-ios-arrow-back:before {
-    color: white;
+    color                : white;
 }
 
 .ion-android-arrow-back:before {
-    color: white;
+    color                : white;
 }
 
 /*********************************** Header ***********************************/
@@ -49,6 +49,8 @@
 
 .bar {
 	height               : 64px !important;
+    border               : none;
+    box-shadow           : 0 1px 5px #b5b5b5;
 }
 
 .has-header {
@@ -73,6 +75,7 @@
     width                : 28px;
     font-size            : 24px;
     vertical-align       : top;
+    color                : #455158;
 }
 
 .side-menu-style {
@@ -84,13 +87,13 @@
 }
 
 .side-menu-left .active-item {
-    background-color     : #F1F1F1 !important;
+    background-color     : #F2FAFE !important;
     background-image     : linear-gradient(left, #477d9f, #477d9f 7px, transparent 7px, transparent 100%) !important;
     background-image     : -webkit-linear-gradient(left, #477d9f, #477d9f 7px, transparent 7px, transparent 100%) !important;
 }
 
 .side-menu-left a:not(.item-divider):hover {
-    background-color     : #F1F1F1;
+    background-color     : #F2FAFE !important;
     background-image     : linear-gradient(left, #477d9f, #477d9f 7px, transparent 7px, transparent 100%);
     background-image     : -webkit-linear-gradient(left, #477d9f, #477d9f 7px, transparent 7px, transparent 100%);
 }
@@ -101,11 +104,11 @@
 
 .nav-list-item {
     border               : none;
-    background-color     : inherit;
+    color                : #455158 !important;
 }
 
 .side-menu-container {
-    background-color     : #F9F9F9;
+    background-color     : #FFFFFF !important;
 }
 
 .logo {
@@ -119,19 +122,20 @@
 /******************************** Browse page *********************************/
 
 .restaurant-list-item {
-    padding-top          : 15px;
-    padding-bottom       : 15px;
+    padding-top          : 10px;
+    padding-bottom       : 10px;
+    margin-left          : 4px;
+}
+
+.item-browse {
+    border-top           : none;
 }
 
 .card-header, .card-hours {
-    padding-left         : 10px;
+    padding-left         : 30px;
 }
 
 /********************************* Login page *********************************/
-
-.login-content {
-    /*background-color   : #477d9f;*/
-}
 
 .login-input {
     border-top           : none;
