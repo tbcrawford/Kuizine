@@ -51,11 +51,11 @@
 	height               : 64px !important;
     border               : none !important;
     box-shadow           : 0 2px 3px #b5b5b5;
+    background-image     : none !important;
 }
 
 .has-header {
 	top                  : 64px !important;
-    border               : none !important;
 }
 
 .bar .title {
