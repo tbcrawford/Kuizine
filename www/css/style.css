@@ -44,17 +44,18 @@
 }
 
 .button-clear {
-    max-height           : none; /*Don't tell me how high I can go!*/
+    max-height           : none; /* Don't tell me how high I can go! */
 }
 
 .bar {
 	height               : 64px !important;
-    border               : none;
-    box-shadow           : 0 1px 5px #b5b5b5;
+    border               : none !important;
+    box-shadow           : 0 2px 3px #b5b5b5;
 }
 
 .has-header {
 	top                  : 64px !important;
+    border               : none !important;
 }
 
 .bar .title {
@@ -129,10 +130,17 @@
 
 .item-browse {
     border-top           : none;
+    border-color         : #f0f0f0;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
 }
 
 .card-header, .card-hours {
-    padding-left         : 30px;
+    padding-left         : 36px;
+}
+
+.browse-content {
+    margin-top: 4px;
 }
 
 /********************************* Login page *********************************/

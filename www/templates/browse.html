@@ -1,7 +1,7 @@
 <ion-view cache-view="false" view-title="Browse">
-    <ion-content ng-init="checkNetwork(); getRestaurantsList();">
+    <ion-content ng-init="checkNetwork(); getRestaurantsList();" class="browse-content">
         <div ng-repeat="card in restaurantsList">
-            <div class="list">
+            <div class="list list-browse">
                 <a ui-sref="kuizine.profile({restaurantId: '{{ card.restaurantId }}'})" class="item item-icon-left item-browse">
                     <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/{{card.restaurantId}}.png"></img>
                     <h2 class="card-header">{{ card.header }}</h2>
