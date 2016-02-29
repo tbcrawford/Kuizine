@@ -79,8 +79,10 @@
   .platform-android .filter-bar .filter-bar-positive .item-input-wrapper .filter-bar-clear:before {
     color: #fff; }
 .platform-android .filter-bar .filter-bar-calm .item-input-wrapper {
-  border-bottom: 1px solid #0a9dc7;
-  background: #11c1f3; }
+  /*border-bottom: 1px solid #0a9dc7;*/
+  border-bottom: 1px solid #5c8faf;
+  /*background: #11c1f3;*/
+  background: #477d9f; }
   .platform-android .filter-bar .filter-bar-calm .item-input-wrapper input[type="search"] {
     color: #fff; }
     .platform-android .filter-bar .filter-bar-calm .item-input-wrapper input[type="search"]::-moz-placeholder {

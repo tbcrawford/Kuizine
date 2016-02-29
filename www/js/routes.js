@@ -87,6 +87,6 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/menu/home');
-  $ionicFilterBarConfigProvider.theme('assertive');
+  $ionicFilterBarConfigProvider.theme('calm');
 
 });

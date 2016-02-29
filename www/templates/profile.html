@@ -18,13 +18,33 @@
             </div>
             <div class="item item-text-wrap">
                 {{profile.restaurantAddress}}
-                '{{profile.restaurantMenuLink}}'
+            </div>
+        </div>
+        <div class="card card-profile">
+            <div class="item item-divider">
+                Hours
+            </div>
+            <div class="item">
+                <table style="width:180px;">
+                    <tr ng:repeat="d in days">
+                        <td>{{d}}</td>
+                        <td>{{profile.restaurantHours[$index]}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="card card-profile">
+            <div class="item item-divider">
+                Phone Number
+            </div>
+            <div class="item item-text-wrap">
+                <a href="{{profile.restaurantPhone}}">{{profile.restaurantPhone}}</a>
             </div>
         </div>
         <br />
     </ion-content>
     <div class="tabs tabs-icon-top">
-        <a href="tel:{{profile.restaurantPhone}}"class="tab-item">
+        <a href="tel:{{profile.restaurantPhone}}" class="tab-item">
             <i class="icon fa fa-phone"></i>Call
         </a>
         <a class="tab-item" ng-click="openMenuLink()">

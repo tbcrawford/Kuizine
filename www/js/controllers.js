@@ -32,6 +32,7 @@ angular.module('app.controllers', [])
 
 //
 .controller('profileCtrl', function($scope, RestaurantDisplayService) {
+    $scope.days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     $scope.getRestaurantProfile = function() {
         RestaurantDisplayService.getRestaurantProfile().then(function(response) {
             $scope.profile = response;

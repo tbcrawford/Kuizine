@@ -33,6 +33,14 @@ This section will outline the naming conventions coding guidelines for each lang
 
 ## Changelog
 
+#### 0.4.7
+* Fixed Search colors
+* Added hours and phone number in profile view
+* Added Menu and Website linkage
+* Made back text and buttons white
+* Known Bug: Call tab button does not work on iOS
+* To add in future: Contact button launches external email app
+
 #### 0.4.6
 * Added home page view
 * Fixed logout

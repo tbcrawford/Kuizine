@@ -16,7 +16,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
     if(window.StatusBar) {
         if (cordova.platfromId == 'android') {
-            StatusBar.backgroundColorByHexString("#e53935");
+            StatusBar.backgroundColorByHexString("#477d9f");
         } else {
             StatusBar.styleLightContent();
         }
