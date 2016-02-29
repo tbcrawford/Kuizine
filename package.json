@@ -21,6 +21,7 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "cordova-plugin-inappbrowser",
+    "cordova-plugin-network-information",
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
