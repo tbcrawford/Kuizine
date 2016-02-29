@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'jett.ionic.filter.bar'])
 
-.run(function($ionicPlatform, $ionicPopup) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -21,19 +21,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
             StatusBar.styleLightContent();
         }
         StatusBar.overlaysWebView(true);
-    }
-    if(window.Connection) {
-        if(navigator.connection.type == Connection.NONE) {
-            if(navigator.connection.type == Connection.NONE) {
-                $ionicPopup.alert({
-                    title: 'No Internet Connection',
-                    content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
-                })
-                .then(function(result) {
-                    ionic.Platform.exitApp();
-                });
-            }
-        }
     }
   });
 });

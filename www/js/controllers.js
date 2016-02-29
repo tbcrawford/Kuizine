@@ -22,11 +22,24 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('browseCtrl', function($scope, RestaurantDisplayService) {
+.controller('browseCtrl', function($scope, $ionicPopup, $state, RestaurantDisplayService) {
     $scope.getRestaurantsList = function() {
         RestaurantDisplayService.getRestaurantsList().then(function(response) {
             $scope.restaurantsList = response;
         });
+    }
+    $scope.checkNetwork = function() {
+        if(window.Connection) {
+            if(navigator.connection.type == Connection.NONE) {
+                $ionicPopup.alert({
+                    title: 'No Network Connection',
+                    content: 'Please connect to a network to use this functionality.'
+                })
+                .then(function(result) {
+                    $state.go('kuizine.home');
+                });
+            }
+        }
     }
 })
 

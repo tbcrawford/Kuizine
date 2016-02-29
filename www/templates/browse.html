@@ -1,5 +1,5 @@
-<ion-view view-title="Browse" ng-controller="browseCtrl">
-    <ion-content ng-init="getRestaurantsList()">
+<ion-view cache-view="false" view-title="Browse">
+    <ion-content ng-init="checkNetwork(); getRestaurantsList();">
         <div ng-repeat="card in restaurantsList">
             <div class="list card">
                 <a ui-sref="kuizine.profile({restaurantId: '{{ card.restaurantId }}'})" class="item item-icon-left">
