@@ -5,7 +5,7 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('navmenuCtrl', function($scope, AuthenticationService) {
+.controller('navmenuCtrl', function($scope, $ionicSideMenuDelegate, AuthenticationService) {
     $scope.getLoginStatus = function() {
         return AuthenticationService.getLoginStatus();
     }
@@ -13,7 +13,8 @@ angular.module('app.controllers', [])
         return AuthenticationService.getUsername();
     }
     $scope.logout = function() {
-        return AuthenticationService.logout();
+        $ionicSideMenuDelegate.toggleLeft();
+        AuthenticationService.logout();
     }
 })
 
