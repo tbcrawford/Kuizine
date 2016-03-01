@@ -33,6 +33,17 @@ This section will outline the naming conventions coding guidelines for each lang
 
 ## Changelog
 
+#### 0.4.8
+* New UI colors in nav menu
+* Added drop shadow to header bar
+* Added network connection error messages to login, browse, and profile views
+* Disabled physical Android back button
+* Fixed known logout nav menu bug where the side menu would not close
+* Modified browse to look cleaner and geared towards both Android and iOS
+* Localized fontawesome icons for offline use
+* Modified side menu Kuizine logo colors to match font colors
+* Fixed menu toggle bug that would prevent a user from being able to use the hamburger button
+
 #### 0.4.7
 * Fixed Search colors
 * Added hours and phone number in profile view
