@@ -28,24 +28,24 @@ angular.module('app.services', [])
         //
         deferred.resolve();
         return deferred.promise;
-    }
+    };
 
     //
     authenticationService.getLoginStatus = function() {
         return loggedIn;
-    }
+    };
 
     //
     authenticationService.getUsername = function() {
         return username;
-    }
+    };
 
     //
     authenticationService.logout = function() {
         loggedIn = undefined;
         username = undefined;
         $state.go('kuizine.home');
-    }
+    };
 
     //
     return authenticationService;
@@ -77,13 +77,13 @@ angular.module('app.services', [])
             }
 
             //
-            deferred.resolve(restaurantsList)
+            deferred.resolve(restaurantsList);
             return restaurantsList;
         });
 
         //
         return deferred.promise;
-    }
+    };
 
     //
     restaurantDisplayService.getRestaurantProfile = function() {
@@ -117,14 +117,14 @@ angular.module('app.services', [])
 
         //
         return deferred.promise;
-    }
+    };
 
     //
     restaurantDisplayService.getDay = function() {
         var date = new Date();
         return date.getDay();
-    }
+    };
 
     //
     return restaurantDisplayService;
-}])
+}]);

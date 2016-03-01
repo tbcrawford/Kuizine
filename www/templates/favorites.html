@@ -1,3 +1,13 @@
 <ion-view title="Favorites">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
+    <ion-content overflow-scroll="true" class="has-header browse-content">
+        <div ng-repeat="card in favoritesList">
+            <div class="list list-browse">
+                <a ui-sref="#" class="item item-icon-left item-browse">
+                    <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/1.png"></img>
+                    <h2 class="card-header">{{ card.header }}</h2>
+                    <p class="card-hours">{{ card.hours }}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

@@ -6,16 +6,21 @@ angular.module('app.controllers', [])
 
 //
 .controller('navmenuCtrl', function($scope, $ionicSideMenuDelegate, AuthenticationService) {
+    //
     $scope.getLoginStatus = function() {
         return AuthenticationService.getLoginStatus();
-    }
+    };
+
+    //
     $scope.getUsername = function() {
         return AuthenticationService.getUsername();
-    }
+    };
+
+    //
     $scope.logout = function() {
         $ionicSideMenuDelegate.toggleLeft();
         AuthenticationService.logout();
-    }
+    };
 })
 
 //
@@ -24,11 +29,14 @@ angular.module('app.controllers', [])
 
 //
 .controller('browseCtrl', function($scope, $ionicPopup, $state, RestaurantDisplayService) {
+    //
     $scope.getRestaurantsList = function() {
         RestaurantDisplayService.getRestaurantsList().then(function(response) {
             $scope.restaurantsList = response;
         });
-    }
+    };
+
+    //
     $scope.checkNetwork = function() {
         if(window.Connection) {
             if(navigator.connection.type == Connection.NONE) {
@@ -41,26 +49,37 @@ angular.module('app.controllers', [])
                 });
             }
         }
-    }
+    };
 })
 
 //
 .controller('profileCtrl', function($scope, $ionicPopup, $state, RestaurantDisplayService) {
+    //
     $scope.days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+    //
     $scope.getRestaurantProfile = function() {
         RestaurantDisplayService.getRestaurantProfile().then(function(response) {
             $scope.profile = response;
         });
-    }
+    };
+
+    //
     $scope.getDay = function() {
         return RestaurantDisplayService.getDay();
-    }
+    };
+
+    //
     $scope.openMenuLink = function() {
         window.open($scope.profile.restaurantMenuLink, '_system', 'location=yes');
-    }
+    };
+
+    //
     $scope.openWebsiteLink = function() {
         window.open($scope.profile.restaurantWebsite, '_system', 'location=yes');
-    }
+    };
+
+    //
     $scope.checkNetwork = function() {
         if(window.Connection) {
             if(navigator.connection.type == Connection.NONE) {
@@ -73,20 +92,34 @@ angular.module('app.controllers', [])
                 });
             }
         }
-    }
+    };
 })
 
 //
 .controller('favoritesCtrl', function($scope, AuthenticationService) {
+    //
+    $scope.favoritesList = [];
+    for (var i = 0; i < 10; i++) {
+        var foo = {
+            header: "Restaurant #" + i,
+            hours: "Today's hours: 11AM-3AM"
+        };
+        $scope.favoritesList.push(foo);
+    }
 })
 
 //
 .controller('loginCtrl', function($scope, $ionicPopup, AuthenticationService) {
+    //
     $scope.credentials = {};
+
+    //
     $scope.login = function() {
         AuthenticationService.login($scope.credentials.username, $scope.credentials.password).then(function(response) {
         });
-    }
+    };
+
+    //
     $scope.checkNetwork = function() {
         if(window.Connection) {
             if(navigator.connection.type == Connection.NONE) {
@@ -98,9 +131,9 @@ angular.module('app.controllers', [])
                 });
             }
         }
-    }
+    };
 })
 
 //
 .controller('signupCtrl', function($scope) {
-})
+});
