@@ -44,7 +44,7 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('profileCtrl', function($scope, RestaurantDisplayService) {
+.controller('profileCtrl', function($scope, $ionicPopup, $state, RestaurantDisplayService) {
     $scope.days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     $scope.getRestaurantProfile = function() {
         RestaurantDisplayService.getRestaurantProfile().then(function(response) {
@@ -60,6 +60,19 @@ angular.module('app.controllers', [])
     $scope.openWebsiteLink = function() {
         window.open($scope.profile.restaurantWebsite, '_system', 'location=yes');
     }
+    $scope.checkNetwork = function() {
+        if(window.Connection) {
+            if(navigator.connection.type == Connection.NONE) {
+                $ionicPopup.alert({
+                    title: 'No Network Connection',
+                    content: 'Please connect to a network to use this functionality.'
+                })
+                .then(function(result) {
+                    $state.go('kuizine.home');
+                });
+            }
+        }
+    }
 })
 
 //
@@ -67,11 +80,23 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('loginCtrl', function($scope, $state, AuthenticationService) {
+.controller('loginCtrl', function($scope, $ionicPopup, AuthenticationService) {
     $scope.credentials = {};
     $scope.login = function() {
         AuthenticationService.login($scope.credentials.username, $scope.credentials.password).then(function(response) {
         });
+    }
+    $scope.checkNetwork = function() {
+        if(window.Connection) {
+            if(navigator.connection.type == Connection.NONE) {
+                $ionicPopup.alert({
+                    title: 'No Network Connection',
+                    content: 'Please connect to a network to use this functionality.'
+                })
+                .then(function(result) {
+                });
+            }
+        }
     }
 })
 

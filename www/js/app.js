@@ -23,4 +23,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
         StatusBar.overlaysWebView(true);
     }
   });
+
+  $ionicPlatform.registerBackButtonAction(
+      function () {
+          console.log("");
+      }, 100
+  );
 });
