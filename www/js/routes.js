@@ -1,7 +1,7 @@
 angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
 
 //
-.config(function($stateProvider, $urlRouterProvider, $ionicFilterBarConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicFilterBarConfigProvider, $ionicConfigProvider) {
     $stateProvider
 
     .state('kuizine', {
@@ -86,5 +86,8 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
 
     //
     $ionicFilterBarConfigProvider.theme('calm');
+
+    //
+    $ionicConfigProvider.views.swipeBackEnabled(false);
 
 });
