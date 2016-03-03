@@ -33,6 +33,12 @@ This section will outline the naming conventions coding guidelines for each lang
 
 ## Changelog
 
+### 0.5
+* Intermediate release
+* Changed back button color on iOS to white
+* Made the restaurant hours table wider to separate days from hours
+* Reordered CSS alphabetically and by view to conform to style guidelines
+
 #### 0.4.8
 * New UI colors in nav menu
 * Added drop shadow to header bar
