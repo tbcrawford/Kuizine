@@ -15,7 +15,7 @@ angular.module('app.services', [])
         //
         $http.post('http://csit.kutztown.edu/kuizine/application_files/login.php', {username: user, password: pass})
         .then(function (response) {
-            if (response.data == "AUTH-SUCCESS") {
+            if (response.data.message == "AUTHORIZATION-SUCCESS") {
                 loggedIn = true;
                 username = user;
                 $state.go('kuizine.home');
@@ -67,11 +67,11 @@ angular.module('app.services', [])
         //
         $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurants_list.php', {dayOfWeek: restaurantDisplayService.getDay()})
         .then(function (response) {
-            for (var i = 0; i < response.data.split('|').length-1; i+=3) {
+            for (var i = 0; i < response.data.length; i++) {
                 var card = {
-                    header: response.data.split('|')[i],
-                    restaurantId: response.data.split('|')[i+1],
-                    hours: "Today's hours: " + response.data.split('|')[i+2]
+                    restaurantName: response.data[i].restaurantName,
+                    restaurantId: response.data[i].restaurantId,
+                    restaurantHours: response.data[i].restaurantHours
                 };
                 restaurantsList.push(card);
             }
@@ -95,20 +95,15 @@ angular.module('app.services', [])
         $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {restaurantId: $stateParams.restaurantId})
         .then(function (response) {
             //
-            profile.restaurantId = response.data.split('|')[0];
-            profile.restaurantName = response.data.split('|')[1];
-        	profile.restaurantAddress = response.data.split('|')[2];
-        	profile.restaurantPhone = response.data.split('|')[3];
-        	profile.restaurantEmail = response.data.split('|')[4];
-        	profile.restaurantWebsite = response.data.split('|')[5];
-        	profile.restaurantDescription = response.data.split('|')[6];
-        	profile.restaurantMenuLink = response.data.split('|')[7];
-
-            //
-            profile.restaurantHours = [];
-            for (var i = 0; i < 7; i++) {
-              profile.restaurantHours.push(response.data.split('|')[i+8]);
-            }
+            profile.restaurantId = response.data.restaurantId;
+            profile.restaurantName = response.data.restaurantName;
+        	profile.restaurantAddress = response.data.restaurantAddress;
+        	profile.restaurantPhone = response.data.restaurantPhone;
+        	profile.restaurantEmail = response.data.restaurantEmail;
+        	profile.restaurantWebsite = response.data.restaurantWebsite;
+        	profile.restaurantDescription = response.data.restaurantDescription;
+        	profile.restaurantMenuLink = response.data.restaurantMenuLink;
+            profile.restaurantHours = response.data.restaurantHours;
 
             //
             deferred.resolve(profile);

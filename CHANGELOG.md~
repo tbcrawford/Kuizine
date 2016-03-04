@@ -15,7 +15,6 @@ All notable changes to Kuizine will documented in this file.
 
 ### Changed
 - Moved change log from README.md to CHANGELOG.md
-- Server side application files now encode data as JSON instead of pipe delimited text
 
 ## [0.5.0] - 2016-03-03
 ### Intermediate release
