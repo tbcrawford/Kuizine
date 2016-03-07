@@ -1,12 +1,12 @@
 <ion-view cache-view="false">
     <ion-nav-title>Favorites</ion-nav-title>
-    <ion-content overflow-scroll="true" class="has-header browse-content">
-        <div ng-repeat="card in favoritesList">
+    <ion-content overflow-scroll="true" class="has-header browse-content" ng-init="checkNetwork(); getFavoritesList();">
+        <div ng-repeat="restaurant in favoritesList">
             <div class="list list-browse">
-                <a ui-sref="#" class="item item-icon-left item-browse">
-                    <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/1.png"></img>
-                    <h2 class="card-header">{{ card.header }}</h2>
-                    <p class="card-hours">{{ card.hours }}</p>
+                <a ui-sref="kuizine.profile({restaurantId: '{{ restaurant.restaurantId }}'})" class="item item-icon-left item-browse">
+                    <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/{{restaurant.restaurantId}}.png"></img>
+                    <h2 class="card-header">{{ restaurant.restaurantName }}</h2>
+                    <p class="card-hours">{{ restaurant.restaurantHours }}</p>
                 </a>
             </div>
         </div>

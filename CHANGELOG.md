@@ -10,12 +10,16 @@ All notable changes to Kuizine will documented in this file.
   - `Security` to invite users to upgrade in case of vulnerabilities.
 
 ## [Unreleased]
+
+## [0.5.1] - 2016-03-07
 ### Added
 - Created CHANGELOG.md and MIT LICENSE file
+- Added favorites functionality
 
 ### Changed
 - Moved change log from README.md to CHANGELOG.md
 - Server side application files now encode data as JSON instead of pipe delimited text
+- Optimized server-side SQL queries
 
 ## [0.5.0] - 2016-03-03
 ### Intermediate release

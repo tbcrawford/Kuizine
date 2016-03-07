@@ -5,6 +5,7 @@ angular.module('app.services', [])
     //
     var authenticationService = {};
     var username;
+    var userId;
     var loggedIn;
 
     //
@@ -18,6 +19,7 @@ angular.module('app.services', [])
             if (response.data.message == "AUTHORIZATION-SUCCESS") {
                 loggedIn = true;
                 username = user;
+                userId = response.data.userId;
                 $state.go('kuizine.home');
             }
             else {
@@ -41,9 +43,15 @@ angular.module('app.services', [])
     };
 
     //
+    authenticationService.getUserId = function() {
+        return userId;
+    };
+
+    //
     authenticationService.logout = function() {
         loggedIn = undefined;
         username = undefined;
+        userId = undefined;
         $state.go('kuizine.home');
     };
 
@@ -79,6 +87,33 @@ angular.module('app.services', [])
             //
             deferred.resolve(restaurantsList);
             return restaurantsList;
+        });
+
+        //
+        return deferred.promise;
+    };
+
+    //
+    restaurantDisplayService.getFavoritesList = function(userId) {
+        //
+        var deferred = $q.defer();
+        var favoritesList = [];
+
+        //
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_favorites_list.php', {userId: userId, dayOfWeek: restaurantDisplayService.getDay()})
+        .then(function (response) {
+            for (var i = 0; i < response.data.length; i++) {
+                var card = {
+                    restaurantName: response.data[i].restaurantName,
+                    restaurantId: response.data[i].restaurantId,
+                    restaurantHours: response.data[i].restaurantHours
+                };
+                favoritesList.push(card);
+            }
+
+            //
+            deferred.resolve(favoritesList);
+            return favoritesList;
         });
 
         //

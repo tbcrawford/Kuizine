@@ -96,16 +96,28 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('favoritesCtrl', function($scope, AuthenticationService) {
+.controller('favoritesCtrl', function($scope, $ionicPopup, AuthenticationService, RestaurantDisplayService) {
     //
-    $scope.favoritesList = [];
-    for (var i = 0; i < 10; i++) {
-        var foo = {
-            header: "Restaurant #" + i,
-            hours: "Today's hours: 11AM-3AM"
-        };
-        $scope.favoritesList.push(foo);
+    $scope.getFavoritesList = function() {
+        //
+        RestaurantDisplayService.getFavoritesList(AuthenticationService.getUserId()).then(function(response) {
+            $scope.favoritesList = response;
+        });
     }
+
+    //
+    $scope.checkNetwork = function() {
+        if(window.Connection) {
+            if(navigator.connection.type == Connection.NONE) {
+                $ionicPopup.alert({
+                    title: 'No Network Connection',
+                    content: 'Please connect to a network to use this functionality.'
+                })
+                .then(function(result) {
+                });
+            }
+        }
+    };
 })
 
 //
