@@ -1,6 +1,6 @@
 <ion-view cache-view="false">
     <ion-nav-title>Favorites</ion-nav-title>
-    <ion-content overflow-scroll="true" class="has-header browse-content" ng-init="checkNetwork(); getFavoritesList();">
+    <ion-content class="has-header browse-content" ng-init="checkNetwork(); getFavoritesList();">
         <div ng-repeat="restaurant in favoritesList">
             <div class="list list-browse">
                 <a ui-sref="kuizine.profile({restaurantId: '{{ restaurant.restaurantId }}'})" class="item item-icon-left item-browse">

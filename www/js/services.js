@@ -76,12 +76,7 @@ angular.module('app.services', [])
         $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurants_list.php', {dayOfWeek: restaurantDisplayService.getDay()})
         .then(function (response) {
             for (var i = 0; i < response.data.length; i++) {
-                var card = {
-                    restaurantName: response.data[i].restaurantName,
-                    restaurantId: response.data[i].restaurantId,
-                    restaurantHours: response.data[i].restaurantHours
-                };
-                restaurantsList.push(card);
+                restaurantsList.push(response.data[i]);
             }
 
             //
@@ -103,12 +98,7 @@ angular.module('app.services', [])
         $http.post('http://csit.kutztown.edu/kuizine/application_files/get_favorites_list.php', {userId: userId, dayOfWeek: restaurantDisplayService.getDay()})
         .then(function (response) {
             for (var i = 0; i < response.data.length; i++) {
-                var card = {
-                    restaurantName: response.data[i].restaurantName,
-                    restaurantId: response.data[i].restaurantId,
-                    restaurantHours: response.data[i].restaurantHours
-                };
-                favoritesList.push(card);
+                favoritesList.push(response.data[i]);
             }
 
             //
@@ -124,21 +114,12 @@ angular.module('app.services', [])
     restaurantDisplayService.getRestaurantProfile = function() {
         //
         var deferred = $q.defer();
-        var profile = {};
 
         //
         $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {restaurantId: $stateParams.restaurantId})
         .then(function (response) {
             //
-            profile.restaurantId = response.data.restaurantId;
-            profile.restaurantName = response.data.restaurantName;
-        	profile.restaurantAddress = response.data.restaurantAddress;
-        	profile.restaurantPhone = response.data.restaurantPhone;
-        	profile.restaurantEmail = response.data.restaurantEmail;
-        	profile.restaurantWebsite = response.data.restaurantWebsite;
-        	profile.restaurantDescription = response.data.restaurantDescription;
-        	profile.restaurantMenuLink = response.data.restaurantMenuLink;
-            profile.restaurantHours = response.data.restaurantHours;
+            var profile = response.data;
 
             //
             deferred.resolve(profile);

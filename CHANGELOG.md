@@ -10,6 +10,8 @@ All notable changes to Kuizine will documented in this file.
   - `Security` to invite users to upgrade in case of vulnerabilities.
 
 ## [Unreleased]
+### Changed
+- Optimized RestaurantDisplayService methods
 
 ## [0.5.1] - 2016-03-07
 ### Added

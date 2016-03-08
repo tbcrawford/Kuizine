@@ -1,6 +1,6 @@
 <ion-view cache-view="false">
     <ion-nav-title>Browse</ion-nav-title>
-    <ion-content class="browse-content" ng-init="checkNetwork(); getRestaurantsList();">
+    <ion-content class="has-header browse-content" ng-init="checkNetwork(); getRestaurantsList();">
         <div ng-repeat="restaurant in restaurantsList">
             <div class="list list-browse">
                 <a ui-sref="kuizine.profile({restaurantId: '{{ restaurant.restaurantId }}'})" class="item item-icon-left item-browse">

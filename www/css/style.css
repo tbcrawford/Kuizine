@@ -14,6 +14,11 @@
     background-image     : linear-gradient(180deg, #5c8faf, #5c8faf 50%, transparent 50%);
 }
 
+.popup-buttons .button,
+.popup-buttons .button.activated {
+    background-color     : #477d9f !important;
+}
+
 .card {
     margin-bottom        : -12px !important;
 }
@@ -29,6 +34,7 @@
 .previous-title {
     color                : white;
 }
+
 
 /*********************************** Header ***********************************/
 .bar {
