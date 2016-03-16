@@ -12,6 +12,9 @@ All notable changes to Kuizine will documented in this file.
 ## [Unreleased]
 ### Changed
 - Optimized RestaurantDisplayService methods
+- Temporarily moved the search functionality to the controller file. Some functionality may move to services later.
+- Search icon visible in search bar again.
+- Moved back arrow on Android over more to be in line with the nav icon.
 
 ## [0.5.1] - 2016-03-07
 ### Added

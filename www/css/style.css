@@ -62,15 +62,20 @@
     top                  : 64px !important;
 }
 
-.ion-ios-search-strong:before{
+.button.button-icon.ion-ios-search-strong:before{
     font-size            : 24px !important;
     color                : white;
+}
+
+.ion-android-arrow-back:before {
+    margin-left          : 14px; 
 }
 
 .ion-navicon:before {
     color                : white;
     margin-left          : 14px;
 }
+
 
 /* This should fix the issue that is related to android only! */
 .platform-android .bar .title {

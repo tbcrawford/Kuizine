@@ -24,7 +24,40 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('searchCtrl', function($scope) {
+.controller('searchCtrl', function($scope, $ionicFilterBar) {
+    $scope.items = [];
+
+    for (var i = 1; i < 300; i++) {
+        var itemDate = moment().add(i, 'days');
+        var item = {
+            description: 'Description for item ' + i,
+            date: itemDate.toDate()
+        };
+        $scope.items.push(item);
+    }
+
+    $scope.showFilterBar = function() {
+        filterBarInstance = $ionicFilterBar.show({
+            items: $scope.items,
+            update: function(filteredItems) {
+                $scope.items = filteredItems;
+            },
+            filteredProperties: 'description'
+        });
+    };
+
+
+    $scope.refreshItems = function () {
+        if (filterBarInstance) {
+            filterBarInstance();
+            filterBarInstance = null;
+        }
+
+        $timeout(function () {
+            getItems();
+            $scope.$broadcast('scroll.refreshComplete');
+        }, 1000);
+    };
 })
 
 //
