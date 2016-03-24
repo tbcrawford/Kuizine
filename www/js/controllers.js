@@ -24,39 +24,39 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('searchCtrl', function($scope, $ionicFilterBar) {
+.controller('searchCtrl', function($scope, $ionicFilterBar, $ionicPopup, $state, RestaurantDisplayService) {
     $scope.items = [];
-
-    for (var i = 1; i < 300; i++) {
-        var itemDate = moment().add(i, 'days');
-        var item = {
-            description: 'Description for item ' + i,
-            date: itemDate.toDate()
-        };
-        $scope.items.push(item);
-    }
 
     $scope.showFilterBar = function() {
         filterBarInstance = $ionicFilterBar.show({
-            items: $scope.items,
+            items: $scope.restaurantsList,
             update: function(filteredItems) {
-                $scope.items = filteredItems;
+                $scope.restaurantsList = filteredItems;
             },
-            filteredProperties: 'description'
+            filteredProperties: 'restaurantName'
         });
     };
 
+    //
+    $scope.getRestaurantsList = function() {
+        RestaurantDisplayService.getRestaurantsList().then(function(response) {
+            $scope.restaurantsList = response;
+        });
+    };
 
-    $scope.refreshItems = function () {
-        if (filterBarInstance) {
-            filterBarInstance();
-            filterBarInstance = null;
+    //
+    $scope.checkNetwork = function() {
+        if(window.Connection) {
+            if(navigator.connection.type == Connection.NONE) {
+                $ionicPopup.alert({
+                    title: 'No Network Connection',
+                    content: 'Please connect to a network to use this functionality.'
+                })
+                .then(function(result) {
+                    $state.go('kuizine.home');
+                });
+            }
         }
-
-        $timeout(function () {
-            getItems();
-            $scope.$broadcast('scroll.refreshComplete');
-        }, 1000);
     };
 })
 

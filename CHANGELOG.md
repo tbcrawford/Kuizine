@@ -15,6 +15,7 @@ All notable changes to Kuizine will documented in this file.
 - Temporarily moved the search functionality to the controller file. Some functionality may move to services later.
 - Search icon visible in search bar again.
 - Moved back arrow on Android over more to be in line with the nav icon.
+- Search temporarily searches by restaurant name instead of old placeholder cards
 
 ## [0.5.1] - 2016-03-07
 ### Added
