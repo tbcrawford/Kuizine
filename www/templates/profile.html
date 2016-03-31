@@ -1,5 +1,8 @@
 <ion-view cache-view="false">
     <ion-nav-title>{{profile.restaurantName}}</ion-nav-title>
+    <ion-nav-buttons side="secondary">
+        <button class="button-icon favorite-icon fa fa-star-o"></button>
+    </ion-nav-buttons>
     <ion-content has-header="true" has-tabs="true" style="bottom: 49px;" ng-init="checkNetwork(); getRestaurantProfile();">
         <br/>
         <div class="profile-picture">
@@ -46,16 +49,16 @@
     </ion-content>
     <div class="tabs tabs-icon-top">
         <a href="tel:{{profile.restaurantPhone}}" class="tab-item">
-            <i class="icon fa fa-phone"></i>Call
+            <i class="icon tab-bar fa fa-phone"></i>Call
         </a>
         <a class="tab-item" ng-click="openMenuLink()">
-            <i class="icon fa fa-cutlery"></i>Menu
+            <i class="icon tab-bar fa fa-cutlery"></i>Menu
         </a>
         <a class="tab-item" ng-click="openWebsiteLink()">
-            <i class="icon fa fa-globe"></i>Website
+            <i class="icon tab-bar fa fa-globe"></i>Website
         </a>
         <a class="tab-item" href="mailto:{{profile.restaurantEmail}}">
-            <i class="icon fa fa-at"></i>Contact
+            <i class="icon tab-bar fa fa-at"></i>Contact
         </a>
     </div>
 </ion-view>
