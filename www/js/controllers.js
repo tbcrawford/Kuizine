@@ -86,13 +86,13 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('profileCtrl', function($scope, $ionicPopup, $state, RestaurantDisplayService) {
+.controller('profileCtrl', function($scope, $ionicPopup, $state, AuthenticationService, RestaurantDisplayService) {
     //
     $scope.days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
     //
     $scope.getRestaurantProfile = function() {
-        RestaurantDisplayService.getRestaurantProfile().then(function(response) {
+        RestaurantDisplayService.getRestaurantProfile(AuthenticationService.getUserId()).then(function(response) {
             $scope.profile = response;
         });
     };
@@ -126,6 +126,30 @@ angular.module('app.controllers', [])
             }
         }
     };
+
+    //
+    $scope.getLoginStatus = function() {
+        return AuthenticationService.getLoginStatus();
+    };
+
+    //
+    $scope.addFavorite = function(restaurantId) {
+        //
+        $scope.profile.favorited = "true";
+        $state.go('kuizine.profile');
+        RestaurantDisplayService.addFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
+        });
+    };
+
+    //
+    $scope.removeFavorite = function(restaurantId) {
+        //
+        $scope.profile.favorited = "false";
+        $state.go('kuizine.profile');
+        RestaurantDisplayService.removeFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
+        });
+    };
+
 })
 
 //

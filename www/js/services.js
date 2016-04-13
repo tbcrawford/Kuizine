@@ -111,20 +111,63 @@ angular.module('app.services', [])
     };
 
     //
-    restaurantDisplayService.getRestaurantProfile = function() {
+    restaurantDisplayService.addFavorite = function(userId, restaurantId) {
         //
         var deferred = $q.defer();
 
         //
-        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {restaurantId: $stateParams.restaurantId})
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/add_favorite.php', {userId: userId, restaurantId: restaurantId})
         .then(function (response) {
-            //
-            var profile = response.data;
-
-            //
-            deferred.resolve(profile);
-            return profile;
         });
+
+        //
+        deferred.resolve(query);
+        return deferred.promise;
+    };
+
+    //
+    restaurantDisplayService.removeFavorite = function(userId, restaurantId) {
+        //
+        var deferred = $q.defer();
+
+        //
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/remove_favorite.php', {userId: userId, restaurantId: restaurantId})
+        .then(function (response) {
+        });
+
+        //
+        deferred.resolve(query);
+        return deferred.promise;
+    };
+
+    //
+    restaurantDisplayService.getRestaurantProfile = function(userId) {
+        //
+        var deferred = $q.defer();
+
+        //
+        if (userId > 0) {
+            $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {restaurantId: $stateParams.restaurantId, userId: userId})
+            .then(function (response) {
+                //
+                var profile = response.data;
+
+                //
+                deferred.resolve(profile);
+                return profile;
+            });
+        }
+        else {
+            $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {restaurantId: $stateParams.restaurantId, userId: "undefined"})
+            .then(function (response) {
+                //
+                var profile = response.data;
+
+                //
+                deferred.resolve(profile);
+                return profile;
+            });
+        }
 
         //
         return deferred.promise;
