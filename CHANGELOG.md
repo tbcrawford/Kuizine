@@ -10,6 +10,8 @@ All notable changes to Kuizine will documented in this file.
   - `Security` to invite users to upgrade in case of vulnerabilities.
 
 ## [Unreleased]
+
+## [0.6.0] - 2016-04-14
 ### Changed
 - Optimized RestaurantDisplayService methods
 - Temporarily moved the search functionality to the controller file. Some functionality may move to services later.
@@ -17,6 +19,13 @@ All notable changes to Kuizine will documented in this file.
 - Moved back arrow on Android over more to be in line with the nav icon.
 - Search temporarily searches by restaurant name instead of old placeholder cards
 - Fixed favorites functionality
+
+### Added
+- Added maps feature to each profile page
+
+### Removed
+- Removed unnecessary commented out code in search.html
+- Removed groupby.js. Now unnecessary.
 
 ## [0.5.1] - 2016-03-07
 ### Added

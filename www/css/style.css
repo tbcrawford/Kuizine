@@ -40,8 +40,6 @@
 .bar {
 	height               : 64px !important;
     border               : none !important;
-    box-shadow           : 0 2px 3px #b5b5b5;
-    background-image     : none !important;
 }
 
 .bar-mat {
@@ -68,14 +66,13 @@
 }
 
 .ion-android-arrow-back:before {
-    margin-left          : 14px; 
+    margin-left          : 14px;
 }
 
 .ion-navicon:before {
     color                : white;
     margin-left          : 14px;
 }
-
 
 /* This should fix the issue that is related to android only! */
 .platform-android .bar .title {
@@ -140,7 +137,7 @@
 
 /************************************ Browse **********************************/
 .browse-content {
-    margin-top           : 4px;
+    /*margin-top           : 4px;*/
 }
 
 .card-header, .card-hours {
@@ -180,6 +177,11 @@
     background           : #CCCCCC;
 }*/
 
+.favorite-icon:before {
+    color                : white;
+    font-size            : 18pt !important;
+}
+
 .icon.fa {
     font-size            : 18pt;
     margin-top           : 2px;
@@ -188,6 +190,13 @@
 .item.item-divider {
     background           : #477d9f;
     color                : white;
+}
+
+#map {
+    margin               : 0 auto;
+    margin-bottom        : 16px;
+    width                : 84%;
+    height               : 80%;
 }
 
 .name {
@@ -210,6 +219,10 @@
     margin               : 0 auto;
     padding-top          : 20px;
     text-align           : center;
+}
+
+.scroll {
+    height               : 100%;
 }
 
 /*********************************** Favorites ********************************/
