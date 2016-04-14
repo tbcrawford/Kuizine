@@ -1,11 +1,11 @@
 angular.module('app.controllers', [])
 
 //
-.controller('homeCtrl', function($scope, AuthenticationService) {
+.controller('homeCtrl', function($scope) {
 })
 
 //
-.controller('navmenuCtrl', function($scope, $ionicSideMenuDelegate, AuthenticationService) {
+.controller('navmenuCtrl', function(AuthenticationService, $ionicSideMenuDelegate, $scope) {
     //
     $scope.getLoginStatus = function() {
         return AuthenticationService.getLoginStatus();
@@ -24,7 +24,7 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('searchCtrl', function($scope, $ionicFilterBar, $ionicPopup, $state, RestaurantDisplayService) {
+.controller('searchCtrl', function($ionicFilterBar, RestaurantDisplayService, NetworkErrorService, $scope) {
     $scope.items = [];
 
     $scope.showFilterBar = function() {
@@ -46,22 +46,12 @@ angular.module('app.controllers', [])
 
     //
     $scope.checkNetwork = function() {
-        if(window.Connection) {
-            if(navigator.connection.type == Connection.NONE) {
-                $ionicPopup.alert({
-                    title: 'No Network Connection',
-                    content: 'Please connect to a network to use this functionality.'
-                })
-                .then(function(result) {
-                    $state.go('kuizine.home');
-                });
-            }
-        }
+        NetworkErrorService.checkNetwork();
     };
 })
 
 //
-.controller('browseCtrl', function($scope, $ionicPopup, $state, RestaurantDisplayService) {
+.controller('browseCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope) {
     //
     $scope.getRestaurantsList = function() {
         RestaurantDisplayService.getRestaurantsList().then(function(response) {
@@ -71,22 +61,12 @@ angular.module('app.controllers', [])
 
     //
     $scope.checkNetwork = function() {
-        if(window.Connection) {
-            if(navigator.connection.type == Connection.NONE) {
-                $ionicPopup.alert({
-                    title: 'No Network Connection',
-                    content: 'Please connect to a network to use this functionality.'
-                })
-                .then(function(result) {
-                    $state.go('kuizine.home');
-                });
-            }
-        }
+        NetworkErrorService.checkNetwork();
     };
 })
 
 //
-.controller('profileCtrl', function($scope, $ionicPopup, $state, AuthenticationService, RestaurantDisplayService) {
+.controller('profileCtrl', function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope, $state) {
     //
     $scope.days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
@@ -114,17 +94,7 @@ angular.module('app.controllers', [])
 
     //
     $scope.checkNetwork = function() {
-        if(window.Connection) {
-            if(navigator.connection.type == Connection.NONE) {
-                $ionicPopup.alert({
-                    title: 'No Network Connection',
-                    content: 'Please connect to a network to use this functionality.'
-                })
-                .then(function(result) {
-                    $state.go('kuizine.home');
-                });
-            }
-        }
+        NetworkErrorService.checkNetwork();
     };
 
     //
@@ -181,7 +151,7 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('favoritesCtrl', function($scope, $ionicPopup, AuthenticationService, RestaurantDisplayService) {
+.controller('favoritesCtrl', function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope) {
     //
     $scope.getFavoritesList = function() {
         //
@@ -192,21 +162,12 @@ angular.module('app.controllers', [])
 
     //
     $scope.checkNetwork = function() {
-        if(window.Connection) {
-            if(navigator.connection.type == Connection.NONE) {
-                $ionicPopup.alert({
-                    title: 'No Network Connection',
-                    content: 'Please connect to a network to use this functionality.'
-                })
-                .then(function(result) {
-                });
-            }
-        }
+        NetworkErrorService.checkNetwork();
     };
 })
 
 //
-.controller('loginCtrl', function($scope, $ionicPopup, AuthenticationService) {
+.controller('loginCtrl', function(AuthenticationService, NetworkErrorService, $scope) {
     //
     $scope.credentials = {};
 
@@ -218,16 +179,7 @@ angular.module('app.controllers', [])
 
     //
     $scope.checkNetwork = function() {
-        if(window.Connection) {
-            if(navigator.connection.type == Connection.NONE) {
-                $ionicPopup.alert({
-                    title: 'No Network Connection',
-                    content: 'Please connect to a network to use this functionality.'
-                })
-                .then(function(result) {
-                });
-            }
-        }
+        NetworkErrorService.checkNetwork();
     };
 })
 

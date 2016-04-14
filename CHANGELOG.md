@@ -10,6 +10,11 @@ All notable changes to Kuizine will documented in this file.
   - `Security` to invite users to upgrade in case of vulnerabilities.
 
 ## [Unreleased]
+### Changed
+- Cleaned up services and controllers
+
+### Added
+- Created NetworkErrorService
 
 ## [0.6.0] - 2016-04-14
 ### Changed

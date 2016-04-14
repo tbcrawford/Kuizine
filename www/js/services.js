@@ -60,7 +60,6 @@ angular.module('app.services', [])
 }])
 
 
-
 //
 .factory('RestaurantDisplayService', ['$http', '$q', '$stateParams', function($http, $q, $stateParams) {
     //
@@ -146,28 +145,20 @@ angular.module('app.services', [])
         var deferred = $q.defer();
 
         //
-        if (userId > 0) {
-            $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {restaurantId: $stateParams.restaurantId, userId: userId})
-            .then(function (response) {
-                //
-                var profile = response.data;
-
-                //
-                deferred.resolve(profile);
-                return profile;
-            });
+        if (!(userId > 0)) {
+            userId = "undefined";
         }
-        else {
-            $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {restaurantId: $stateParams.restaurantId, userId: "undefined"})
-            .then(function (response) {
-                //
-                var profile = response.data;
 
-                //
-                deferred.resolve(profile);
-                return profile;
-            });
-        }
+        //
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {restaurantId: $stateParams.restaurantId, userId: userId})
+        .then(function (response) {
+            //
+            var profile = response.data;
+
+            //
+            deferred.resolve(profile);
+            return profile;
+        });
 
         //
         return deferred.promise;
@@ -181,4 +172,28 @@ angular.module('app.services', [])
 
     //
     return restaurantDisplayService;
+}])
+
+//
+.factory('NetworkErrorService', ['$ionicPopup', '$state', function($ionicPopup, $state) {
+    //
+    var networkErrorService = {};
+
+    //
+    networkErrorService.checkNetwork = function() {
+        if(window.Connection) {
+            if(navigator.connection.type == Connection.NONE) {
+                $ionicPopup.alert({
+                    title: 'No Network Connection',
+                    content: 'Please connect to a network to use this functionality.'
+                })
+                .then(function(result) {
+                    $state.go('kuizine.home');
+                });
+            }
+        }
+    }
+
+    //
+    return networkErrorService;
 }]);
