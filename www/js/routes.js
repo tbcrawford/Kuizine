@@ -32,7 +32,7 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
     })
 
     .state('kuizine.browse', {
-        url: '/browse',
+        url: '/browse?categoryId',
         views: {
             'side-menu': {
                 templateUrl: 'templates/browse.html',

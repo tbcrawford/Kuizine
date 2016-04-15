@@ -51,7 +51,20 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('browseCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope) {
+.controller('browseCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope, $stateParams) {
+    //
+    $scope.getCategoriesList = function() {
+        RestaurantDisplayService.getCategoriesList().then(function(response) {
+            $scope.categoriesList = response;
+        });
+    };
+
+    //
+    $scope.categoryIsSet = function() {
+        //
+        return RestaurantDisplayService.categoryIsSet();
+    }
+
     //
     $scope.getRestaurantsList = function() {
         RestaurantDisplayService.getRestaurantsList().then(function(response) {

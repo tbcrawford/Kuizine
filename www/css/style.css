@@ -188,7 +188,7 @@
 }
 
 .item.item-divider {
-    background           : #477d9f;
+    background           : #78a3bf;
     color                : white;
 }
 
@@ -255,12 +255,12 @@ input, input[placeholder] {
 .jumbo-icon {
     font-size            : 180px;
     margin-top           : 40px;
-    color                : #477d9f;
+    color                : #78a3bf;
 }
 
 .login-button {
     border-color         : transparent;
-    background-color     : #477d9f;
+    background-color     : #78a3bf;
     color                : #FFFFFF !important;
     font-size            : 16px;
     font-weight          : 400;

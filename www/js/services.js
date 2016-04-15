@@ -66,6 +66,39 @@ angular.module('app.services', [])
     var restaurantDisplayService = {};
 
     //
+    restaurantDisplayService.getCategoriesList = function() {
+        //
+        var deferred = $q.defer();
+        var categoriesList = [];
+
+        //
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_categories_list.php')
+        .then(function (response) {
+            for (var i = 0; i < response.data.length; i++) {
+                categoriesList.push(response.data[i]);
+            }
+
+            //
+            deferred.resolve(categoriesList);
+            return categoriesList;
+        });
+
+        //
+        return deferred.promise;
+    };
+
+    //
+    restaurantDisplayService.categoryIsSet = function() {
+        //
+        if ($stateParams.categoryId > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //
     restaurantDisplayService.getRestaurantsList = function() {
         //
         var deferred = $q.defer();
