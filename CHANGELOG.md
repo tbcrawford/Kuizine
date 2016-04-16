@@ -14,6 +14,7 @@ All notable changes to Kuizine will documented in this file.
 - Cleaned up services and controllers
 - Browse now shows categories
 - UI color tweaks to add diversity to color scheme
+- Fixed maps not showing
 
 ### Added
 - Created NetworkErrorService
