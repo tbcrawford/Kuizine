@@ -5,7 +5,7 @@
             <div ng-repeat="category in categoriesList">
                 <div class="list list-browse">
                     <a ui-sref="kuizine.browse({categoryId: '{{ category.categoryId }}'})" class="item item-icon-left item-browse">
-                        <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/1.png"></img>
+                        <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/categories/{{category.categoryId}}.png"></img>
                         <h2 class="card-header">{{ category.categoryName }}</h2>
                         <p class="card-hours">Sample text that describes the category</p>
                     </a>
@@ -16,7 +16,7 @@
             <div ng-repeat="restaurant in restaurantsList">
                 <div class="list list-browse">
                     <a ui-sref="kuizine.profile({restaurantId: '{{ restaurant.restaurantId }}'})" class="item item-icon-left item-browse">
-                        <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/{{restaurant.restaurantId}}.png"></img>
+                        <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/restaurants/{{restaurant.restaurantId}}.png"></img>
                         <h2 class="card-header">{{ restaurant.restaurantName }}</h2>
                         <p class="card-hours">{{ restaurant.restaurantHours }}</p>
                     </a>
