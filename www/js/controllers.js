@@ -25,16 +25,12 @@ angular.module('app.controllers', [])
 
 //
 .controller('searchCtrl', function($ionicFilterBar, RestaurantDisplayService, NetworkErrorService, $scope) {
+    //
     $scope.items = [];
 
-    $scope.showFilterBar = function() {
-        filterBarInstance = $ionicFilterBar.show({
-            items: $scope.restaurantsList,
-            update: function(filteredItems) {
-                $scope.restaurantsList = filteredItems;
-            },
-            filteredProperties: 'restaurantName'
-        });
+    //
+    $scope.checkNetwork = function() {
+        NetworkErrorService.checkNetwork();
     };
 
     //
@@ -45,8 +41,14 @@ angular.module('app.controllers', [])
     };
 
     //
-    $scope.checkNetwork = function() {
-        NetworkErrorService.checkNetwork();
+    $scope.showFilterBar = function() {
+        filterBarInstance = $ionicFilterBar.show({
+            items: $scope.restaurantsList,
+            update: function(filteredItems) {
+                $scope.restaurantsList = filteredItems;
+            },
+            filteredProperties: 'restaurantName'
+        });
     };
 })
 
@@ -66,8 +68,13 @@ angular.module('app.controllers', [])
     }
 
     //
-    $scope.getRestaurantsList = function() {
-        RestaurantDisplayService.getRestaurantsList().then(function(response) {
+    $scope.getCategoryId = function() {
+        return RestaurantDisplayService.getCategoryId();
+    }
+
+    //
+    $scope.getRestaurantsList = function(categoryId) {
+        RestaurantDisplayService.getRestaurantsList(categoryId).then(function(response) {
             $scope.restaurantsList = response;
         });
     };

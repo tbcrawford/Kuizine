@@ -15,6 +15,7 @@ All notable changes to Kuizine will documented in this file.
 - Browse now shows categories
 - UI color tweaks to add diversity to color scheme
 - Fixed maps not showing
+- Browse is now by category
 
 ### Added
 - Created NetworkErrorService

@@ -99,13 +99,24 @@ angular.module('app.services', [])
     }
 
     //
-    restaurantDisplayService.getRestaurantsList = function() {
+    restaurantDisplayService.getCategoryId = function() {
+        //
+        return $stateParams.categoryId;
+    }
+
+    //
+    restaurantDisplayService.getRestaurantsList = function(categoryId) {
         //
         var deferred = $q.defer();
         var restaurantsList = [];
 
         //
-        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurants_list.php', {dayOfWeek: restaurantDisplayService.getDay()})
+        if (!(categoryId > 0)) {
+            categoryId = "undefined";
+        }
+
+        //
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurants_list.php', {dayOfWeek: restaurantDisplayService.getDay(), categoryId: categoryId})
         .then(function (response) {
             for (var i = 0; i < response.data.length; i++) {
                 restaurantsList.push(response.data[i]);
