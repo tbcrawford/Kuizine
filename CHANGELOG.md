@@ -142,7 +142,9 @@ All notable changes to Kuizine will documented in this file.
 - Home, Search, Browse, Favorites, Login, and Signup page templates were added
 - Minor CSS rules were added to enhance look and feel
 
-[Unreleased]: https://github.com/tbcrawford/Kuizine/compare/8abc34e...HEAD
+[Unreleased]: https://github.com/tbcrawford/Kuizine/compare/43b0441...HEAD
+[0.7.0]: https://github.com/tbcrawford/Kuizine/compare/37d9f95...43b0441
+[0.6.0]: https://github.com/tbcrawford/Kuizine/compare/8abc34e...37d9f95
 [0.5.1]: https://github.com/tbcrawford/Kuizine/compare/12f710e...8abc34e
 [0.5.0]: https://github.com/tbcrawford/Kuizine/compare/eb50f78...12f710e
 [0.4.8]: https://github.com/tbcrawford/Kuizine/compare/250efef...eb50f78
