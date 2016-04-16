@@ -139,35 +139,6 @@ angular.module('app.controllers', [])
         RestaurantDisplayService.removeFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
         });
     };
-
-    //
-    $scope.showMap = function() {
-        if ($scope.profile) {
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({
-                address: $scope.profile.restaurantAddress
-            }, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    var latlng = results[0].geometry.location;
-                    map.setCenter(latlng);
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: latlng
-                    });
-                } else {
-                    // alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-            // Set the map options
-            var mapOptions = {
-                zoom: 18,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            // Create a new map where id="map"
-            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        }
-    };
-
 })
 
 //

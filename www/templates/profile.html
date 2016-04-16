@@ -48,9 +48,15 @@
                 {{profile.restaurantPhone}}
             </div>
         </div>
-        <br />
-        <div ng-show="showMap();"></div>
-        <div id="map" data-tap-disabled="true"></div>
+        <div class="card card-profile">
+            <div class="item item-divider">
+                Location
+            </div>
+            <!-- Do not remove the empty div below, it keeps the corners from rounding on the item header -->
+            <div></div>
+        </div>
+        <map ng-if="profile" address="profile.restaurantAddress" on-create="mapCreated(map)"></map>
+        <br/>
     </ion-content>
     <div class="tabs tabs-icon-top">
         <a href="tel:{{profile.restaurantPhone}}" class="tab-item">

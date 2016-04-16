@@ -10,12 +10,17 @@ All notable changes to Kuizine will documented in this file.
   - `Security` to invite users to upgrade in case of vulnerabilities.
 
 ## [Unreleased]
+
+## [0.7.0] - 2016-04-16
 ### Changed
 - Cleaned up services and controllers
 - Browse now shows categories
 - UI color tweaks to add diversity to color scheme
-- Fixed maps not showing
 - Browse is now by category
+- Moved maps feature from controllers to directives
+
+### Fixed
+- Fixed maps not showing
 
 ### Added
 - Created NetworkErrorService
