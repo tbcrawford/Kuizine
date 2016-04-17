@@ -11,6 +11,9 @@ All notable changes to Kuizine will documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Android and iOS app icon
+
 ### Changed
 - Changed the signup page CSS; still subject to change
 
