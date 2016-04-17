@@ -1,22 +1,21 @@
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'jett.ionic.filter.bar'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'jett.ionic.filter.bar', 'ngCordova'])
 
 //
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $cordovaStatusbar) {
     //
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
-        if(window.cordova && window.cordova.plugins.Keyboard) {
+        if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
 
-        //
-        if(window.StatusBar) {
-            if (cordova.platfromId == 'android') {
-                StatusBar.backgroundColorByHexString("#477d9f");
+        // Hopeful fix for status bar color on Android
+        if (window.StatusBar) {
+            if (ionic.Platform.isAndroid()) {
+                StatusBar.backgroundColorByHexString("#355d76");
             } else {
                 StatusBar.styleLightContent();
             }
-            StatusBar.overlaysWebView(true);
         }
     });
 

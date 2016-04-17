@@ -301,5 +301,11 @@ input, input[placeholder] {
 
 /************************************ Signup **********************************/
 .jumbo-signup {
-    margin-top           : 60px;
+    margin-top           : 40px;
+}
+
+.signup-form .list {
+    width                : 270px;
+    margin               : 0 auto;
+    margin-top           : 30px;
 }

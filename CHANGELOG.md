@@ -11,6 +11,12 @@ All notable changes to Kuizine will documented in this file.
 
 ## [Unreleased]
 
+### Changed
+- Changed the signup page CSS; still subject to change
+
+### Fixed
+- The status bar now has color on Android
+
 ## [0.7.0] - 2016-04-16
 ### Changed
 - Cleaned up services and controllers
