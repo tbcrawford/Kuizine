@@ -13,6 +13,7 @@ All notable changes to Kuizine will documented in this file.
 
 ### Added
 - Android and iOS app icon
+- Category descriptions
 
 ### Changed
 - Changed the signup page CSS; still subject to change
@@ -21,6 +22,7 @@ All notable changes to Kuizine will documented in this file.
 
 ### Fixed
 - The status bar now has color on Android
+- Removed deprecated state call from nav menu to "kuizine.logout"
 
 ## [0.7.0] - 2016-04-16
 ### Changed

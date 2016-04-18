@@ -22,7 +22,7 @@
                 <a ui-sref="kuizine.browse" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-list nav-icon"></i>Browse</a>
                 <a ui-sref="kuizine.favorites" ui-sref-active="active-item" class="item nav-list-item" menu-close ng-if="getLoginStatus()"><i class="fa fa-star-o nav-icon"></i>Favorites</a>
                 <a ui-sref="kuizine.login" ui-sref-active="active-item" class="item nav-list-item" menu-close ng-if="!getLoginStatus()"><i class="fa fa-user nav-icon"></i>Login</a>
-                <a ui-sref="kuizine.logout" ui-sref-active="active-item" class="item nav-list-item" menu-close ng-click="toggleLeftSideMenu(); logout();" ng-if="getLoginStatus()"><i class="fa fa-user nav-icon"></i>Logout</a>
+                <a ui-sref="kuizine.home" ui-sref-active="active-item" class="item nav-list-item" menu-close ng-click="toggleLeftSideMenu(); logout();" ng-if="getLoginStatus()"><i class="fa fa-user nav-icon"></i>Logout</a>
             </ion-list>
         </ion-content>
     </ion-side-menu>
