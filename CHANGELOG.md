@@ -26,6 +26,7 @@ All notable changes to Kuizine will documented in this file.
 - Re-added inappbrowser plugin, this is used for opening URLs in external browser
 - Fixed the favorites icon being placed too high on Android only
 - Keyboard shows automatically on search icon click
+- Fixed bug that caused app to not show an error message after an invalid login after adding persistent logins
 
 ### Removed
 - Removed deprecated state call from nav menu to "kuizine.logout"

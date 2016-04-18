@@ -33,7 +33,15 @@ angular.module('app.services', [])
 
     //
     authenticationService.getLoginStatus = function() {
-        return $window.localStorage.getItem('loggedIn');
+        if ($window.localStorage.getItem('loggedIn') == 'true') {
+            return true;
+        }
+        else if ($window.localStorage.getItem('loggedIn') == 'false') {
+            return false;
+        }
+        else {
+            return undefined;
+        }
     };
 
     //
