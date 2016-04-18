@@ -1,7 +1,7 @@
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'jett.ionic.filter.bar', 'ngCordova'])
 
 //
-.run(function($ionicPlatform, $cordovaStatusbar) {
+.run(function($cordovaStatusbar, $ionicHistory, $ionicPlatform, $state, $stateParams) {
     //
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
@@ -22,7 +22,26 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     //
     $ionicPlatform.registerBackButtonAction(
         function () {
-            console.log("");
+            //
+            if ($state.current.name == "kuizine.home") {
+                ionic.Platform.exitApp();
+            }
+            //
+            else if ($state.current.name == "kuizine.browse" && $stateParams.categoryId > 0) {
+                $ionicHistory.goBack();
+            }
+            //
+            else if ($state.current.name == "kuizine.profile") {
+                $ionicHistory.goBack();
+            }
+            //
+            else if ($state.current.name == "kuizine.signup") {
+                $ionicHistory.goBack();
+            }
+            //
+            else {
+                $state.go("kuizine.home");
+            }
         }, 100
     );
 });

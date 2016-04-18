@@ -1,12 +1,9 @@
 angular.module('app.services', [])
 
 //
-.factory('AuthenticationService', ['$http', '$q', '$state', function($http, $q, $state) {
+.factory('AuthenticationService', ['$http', '$q', '$state', '$window', function($http, $q, $state, $window) {
     //
     var authenticationService = {};
-    var username;
-    var userId;
-    var loggedIn;
 
     //
     authenticationService.login = function(user, pass) {
@@ -16,14 +13,16 @@ angular.module('app.services', [])
         //
         $http.post('http://csit.kutztown.edu/kuizine/application_files/login.php', {username: user, password: pass})
         .then(function (response) {
+            //
             if (response.data.message == "AUTHORIZATION-SUCCESS") {
-                loggedIn = true;
-                username = user;
-                userId = response.data.userId;
+                $window.localStorage.setItem('loggedIn', true);
+                $window.localStorage.setItem('username', user);
+                $window.localStorage.setItem('userId', response.data.userId);
                 $state.go('kuizine.home');
             }
+            //
             else {
-                loggedIn = false;
+                $window.localStorage.setItem('loggedIn', false);
             }
         });
 
@@ -34,24 +33,24 @@ angular.module('app.services', [])
 
     //
     authenticationService.getLoginStatus = function() {
-        return loggedIn;
+        return $window.localStorage.getItem('loggedIn');
     };
 
     //
     authenticationService.getUsername = function() {
-        return username;
+        return $window.localStorage.getItem('username');
     };
 
     //
     authenticationService.getUserId = function() {
-        return userId;
+        return $window.localStorage.getItem('userId');
     };
 
     //
     authenticationService.logout = function() {
-        loggedIn = undefined;
-        username = undefined;
-        userId = undefined;
+        $window.localStorage.removeItem('loggedIn')
+        $window.localStorage.removeItem('username')
+        $window.localStorage.removeItem('userId')
         $state.go('kuizine.home');
     };
 
