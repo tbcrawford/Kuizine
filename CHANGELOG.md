@@ -19,6 +19,7 @@ All notable changes to Kuizine will documented in this file.
 - Changed the signup page CSS; still subject to change
 - Back button functionality reintroduced and routed appropriately
 - Login now persist after closing the app until user logs out
+- Changed about section on home page from lorem ipsum to actual info
 
 ### Fixed
 - The status bar now has color on Android
