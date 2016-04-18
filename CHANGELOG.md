@@ -14,7 +14,6 @@ All notable changes to Kuizine will documented in this file.
 ### Added
 - Android and iOS app icon
 - Category descriptions
-- Re-added inappbrowser plugin, this is used for opening URLs in external browser
 
 ### Changed
 - Changed the signup page CSS; still subject to change
@@ -24,6 +23,8 @@ All notable changes to Kuizine will documented in this file.
 
 ### Fixed
 - The status bar now has color on Android
+- Re-added inappbrowser plugin, this is used for opening URLs in external browser
+- Fixed the favorites icon being placed too high on Android only
 
 ### Removed
 - Removed deprecated state call from nav menu to "kuizine.logout"

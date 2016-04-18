@@ -1,7 +1,7 @@
 <ion-view cache-view="false">
     <ion-nav-title>{{profile.restaurantName}}</ion-nav-title>
     <ion-nav-buttons side="secondary">
-        <div ng-if="getLoginStatus()">
+        <div class="buttons" ng-if="getLoginStatus()">
             <button class="button-icon favorite-icon fa fa-star-o" ng-if="profile.favorited == 'false'" ng-click="addFavorite(profile.restaurantId)"></button>
             <button class="button-icon favorite-icon fa fa-star" ng-if="profile.favorited == 'true'" ng-click="removeFavorite(profile.restaurantId)"></button>
         </div>

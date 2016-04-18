@@ -79,6 +79,11 @@
     line-height          : 64px !important;
 }
 
+/* Fixes the favorite icon on android only */
+.platform-android .bar .secondary {
+    line-height          : 66px !important;
+}
+
 /*********************************** Nav Menu *********************************/
 .active-item i {
     color                : #477d9f;
