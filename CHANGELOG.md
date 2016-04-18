@@ -25,6 +25,7 @@ All notable changes to Kuizine will documented in this file.
 - The status bar now has color on Android
 - Re-added inappbrowser plugin, this is used for opening URLs in external browser
 - Fixed the favorites icon being placed too high on Android only
+- Keyboard shows automatically on search icon click
 
 ### Removed
 - Removed deprecated state call from nav menu to "kuizine.logout"
