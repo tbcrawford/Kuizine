@@ -51,7 +51,7 @@ angular.module('app.services', [])
         $window.localStorage.removeItem('loggedIn')
         $window.localStorage.removeItem('username')
         $window.localStorage.removeItem('userId')
-        // $state.go('kuizine.home');
+        $state.go('kuizine.home');
     };
 
     //
