@@ -27,7 +27,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
                 ionic.Platform.exitApp();
             }
             //
-            else if ($state.current.name == "kuizine.browse" && $stateParams.categoryId > 0) {
+            else if ($state.current.name == "kuizine.category") {
                 $ionicHistory.goBack();
             }
             //

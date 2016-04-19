@@ -20,6 +20,7 @@ All notable changes to Kuizine will documented in this file.
 - Back button functionality reintroduced and routed appropriately
 - Login now persist after closing the app until user logs out
 - Changed about section on home page from lorem ipsum to actual info
+- Separated browse and category views to increase modularity and fix bugs
 
 ### Fixed
 - The status bar now has color on Android

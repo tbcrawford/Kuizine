@@ -95,20 +95,15 @@ angular.module('app.services', [])
     };
 
     //
-    restaurantDisplayService.categoryIsSet = function() {
-        //
-        if ($stateParams.categoryId > 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    //
     restaurantDisplayService.getCategoryId = function() {
         //
         return $stateParams.categoryId;
+    }
+
+    //
+    restaurantDisplayService.getCategoryName = function() {
+        //
+        return $stateParams.categoryName;
     }
 
     //

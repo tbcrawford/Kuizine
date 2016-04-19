@@ -24,7 +24,7 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('searchCtrl', function($ionicFilterBar, RestaurantDisplayService, NetworkErrorService, $scope) {
+.controller('searchCtrl', function($ionicFilterBar, NetworkErrorService, RestaurantDisplayService, $scope) {
     //
     $scope.items = [];
 
@@ -53,7 +53,12 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('browseCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope, $stateParams) {
+.controller('browseCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope) {
+    //
+    $scope.checkNetwork = function() {
+        NetworkErrorService.checkNetwork();
+    };
+
     //
     $scope.getCategoriesList = function() {
         RestaurantDisplayService.getCategoriesList().then(function(response) {
@@ -62,14 +67,28 @@ angular.module('app.controllers', [])
     };
 
     //
-    $scope.categoryIsSet = function() {
-        //
-        return RestaurantDisplayService.categoryIsSet();
-    }
+    $scope.getRestaurantsList = function(categoryId) {
+        RestaurantDisplayService.getRestaurantsList(categoryId).then(function(response) {
+            $scope.restaurantsList = response;
+        });
+    };
+})
+
+//
+.controller('categoryCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope) {
+    //
+    $scope.checkNetwork = function() {
+        NetworkErrorService.checkNetwork();
+    };
 
     //
     $scope.getCategoryId = function() {
         return RestaurantDisplayService.getCategoryId();
+    }
+
+    //
+    $scope.getCategoryName = function() {
+        return RestaurantDisplayService.getCategoryName();
     }
 
     //
@@ -78,12 +97,8 @@ angular.module('app.controllers', [])
             $scope.restaurantsList = response;
         });
     };
-
-    //
-    $scope.checkNetwork = function() {
-        NetworkErrorService.checkNetwork();
-    };
 })
+
 
 //
 .controller('profileCtrl', function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope, $state) {
@@ -91,15 +106,34 @@ angular.module('app.controllers', [])
     $scope.days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
     //
-    $scope.getRestaurantProfile = function() {
-        RestaurantDisplayService.getRestaurantProfile(AuthenticationService.getUserId()).then(function(response) {
-            $scope.profile = response;
+    $scope.addFavorite = function(restaurantId) {
+        //
+        $scope.profile.favorited = "true";
+        $state.go('kuizine.profile');
+        RestaurantDisplayService.addFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
         });
+    };
+
+    //
+    $scope.checkNetwork = function() {
+        NetworkErrorService.checkNetwork();
     };
 
     //
     $scope.getDay = function() {
         return RestaurantDisplayService.getDay();
+    };
+
+    //
+    $scope.getLoginStatus = function() {
+        return AuthenticationService.getLoginStatus();
+    };
+
+    //
+    $scope.getRestaurantProfile = function() {
+        RestaurantDisplayService.getRestaurantProfile(AuthenticationService.getUserId()).then(function(response) {
+            $scope.profile = response;
+        });
     };
 
     //
@@ -110,25 +144,6 @@ angular.module('app.controllers', [])
     //
     $scope.openWebsiteLink = function() {
         window.open($scope.profile.restaurantWebsite, '_system', 'location=yes');
-    };
-
-    //
-    $scope.checkNetwork = function() {
-        NetworkErrorService.checkNetwork();
-    };
-
-    //
-    $scope.getLoginStatus = function() {
-        return AuthenticationService.getLoginStatus();
-    };
-
-    //
-    $scope.addFavorite = function(restaurantId) {
-        //
-        $scope.profile.favorited = "true";
-        $state.go('kuizine.profile');
-        RestaurantDisplayService.addFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
-        });
     };
 
     //
@@ -144,16 +159,16 @@ angular.module('app.controllers', [])
 //
 .controller('favoritesCtrl', function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope) {
     //
+    $scope.checkNetwork = function() {
+        NetworkErrorService.checkNetwork();
+    };
+
+    //
     $scope.getFavoritesList = function() {
         //
         RestaurantDisplayService.getFavoritesList(AuthenticationService.getUserId()).then(function(response) {
             $scope.favoritesList = response;
         });
-    }
-
-    //
-    $scope.checkNetwork = function() {
-        NetworkErrorService.checkNetwork();
     };
 })
 
@@ -163,14 +178,14 @@ angular.module('app.controllers', [])
     $scope.credentials = {username: '', password: ''};
 
     //
-    $scope.login = function() {
-        AuthenticationService.login($scope.credentials.username, $scope.credentials.password).then(function(response) {
-        });
+    $scope.checkNetwork = function() {
+        NetworkErrorService.checkNetwork();
     };
 
     //
-    $scope.checkNetwork = function() {
-        NetworkErrorService.checkNetwork();
+    $scope.login = function() {
+        AuthenticationService.login($scope.credentials.username, $scope.credentials.password).then(function(response) {
+        });
     };
 })
 
@@ -178,6 +193,11 @@ angular.module('app.controllers', [])
 .controller('signupCtrl', function(AuthenticationService, NetworkErrorService, $scope) {
     //
     $scope.credentials = {username: '', password: '', reenter: ''};
+
+    //
+    $scope.checkNetwork = function() {
+        NetworkErrorService.checkNetwork();
+    };
 
     //
     $scope.validate = function() {
@@ -206,15 +226,10 @@ angular.module('app.controllers', [])
         }
         //
         if ($scope.errors.length > 0) {
-
+            alert("Invalid!");
         }
         else {
             alert("Valid!");
         }
     }
-
-    //
-    $scope.checkNetwork = function() {
-        NetworkErrorService.checkNetwork();
-    };
 });
