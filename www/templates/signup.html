@@ -8,17 +8,22 @@
             <img height="140px" width="140px" src="images/logo.png"></img>
         </div>
         <div class="signup-form">
-            <form class="list list-inset" ng-submit="">
+            <form class="list list-inset" ng-submit="validate()">
                 <label class="item item-input login-input">
                     <i class="fa fa-user input-icon"></i>
-                    <input type="text" name="username" placeholder="username" ng-model="data.username">
+                    <input type="text" name="username" placeholder="username" ng-model="credentials.username">
                 </label>
                 <br>
                 <label class="item item-input login-input">
                     <i class="fa fa-unlock-alt input-icon"></i>
-                    <input type="password" name="password" placeholder="password" ng-model="data.password">
+                    <input type="password" name="password" placeholder="password" ng-model="credentials.password">
                 </label>
-                <br><br>
+                <br>
+                <label class="item item-input login-input">
+                    <i class="fa fa-unlock-alt input-icon"></i>
+                    <input type="password" name="reenter" placeholder="re-enter password" ng-model="credentials.reenter">
+                </label>
+                <br>
                 <div class="horizontal-center">
                     <input class="login-button" type="submit" name="submit" value="Sign Up">
                 </div>
