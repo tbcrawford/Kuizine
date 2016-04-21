@@ -190,9 +190,10 @@ angular.module('app.controllers', [])
 })
 
 //
-.controller('signupCtrl', function(AuthenticationService, NetworkErrorService, $scope) {
+.controller('signupCtrl', function(AuthenticationService, $http, NetworkErrorService, $scope, $state, $q) {
     //
     $scope.credentials = {username: '', password: '', reenter: ''};
+    $scope.error = "";
 
     //
     $scope.checkNetwork = function() {
@@ -200,36 +201,47 @@ angular.module('app.controllers', [])
     };
 
     //
-    $scope.validate = function() {
-        //
-        $scope.errors = [];
-
+    $scope.validateClientSide = function() {
         //
         if ($scope.credentials.username.length < 3 || $scope.credentials.username.length > 20) {
-            $scope.errors.push("Username must be between 3 and 20 characters long");
+            $scope.error = "Username must be between 3 and 20 characters long";
         }
-        //
-        if (!RegExp("^[a-zA-Z0-9_]+$").test($scope.credentials.username)) {
-            $scope.errors.push("Username must only contain alphanumeric characters and underscores");
+        else if (!RegExp("^[a-zA-Z0-9_]+$").test($scope.credentials.username)) {
+            $scope.error = "Username must only contain alphanumeric characters or underscores";
         }
-        //
-        if ($scope.credentials.password.length < 4 || $scope.credentials.username.length > 20) {
-            $scope.errors.push("Password must be between 4 and 20 characters long");
+        else if ($scope.credentials.password.length < 4 || $scope.credentials.password.length > 20) {
+            $scope.error = "Password must be between 4 and 20 characters long";
         }
-        //
-        if (!RegExp("^[a-zA-Z0-9_]+$").test($scope.credentials.password)) {
-            $scope.errors.push("Password must only contain alphanumeric characters and underscores");
+        else if (!RegExp("^[a-zA-Z0-9_]+$").test($scope.credentials.password)) {
+            $scope.error = "Password must only contain alphanumeric characters or underscores";
         }
-        //
-        if ($scope.credentials.password != $scope.credentials.reenter) {
-            $scope.errors.push("Passwords do not match");
-        }
-        //
-        if ($scope.errors.length > 0) {
-            alert("Invalid!");
+        else if ($scope.credentials.password != $scope.credentials.reenter) {
+            $scope.error = "Passwords do not match";
         }
         else {
-            alert("Valid!");
+            $scope.validateServerSide();
         }
+    }
+
+    $scope.validateServerSide = function() {
+        //
+        var deferred = $q.defer();
+
+        //
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/signup.php', {username: $scope.credentials.username, password: $scope.credentials.password})
+        .then(function (response) {
+            //
+            if (response.data.message == "SIGNUP-SUCCESS") {
+                $state.go('kuizine.home');
+            }
+            //
+            else {
+                $scope.error = response.data.message;
+            }
+        });
+
+        //
+        deferred.resolve();
+        return deferred.promise;
     }
 });

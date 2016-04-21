@@ -278,7 +278,7 @@ input, input[placeholder] {
     border-radius        : 34px;
 }
 
-.login-error {
+.login-error, .signup-error {
     color                : red;
     text-align           : center;
 }
