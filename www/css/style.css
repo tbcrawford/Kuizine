@@ -163,6 +163,51 @@
 }
 
 /************************************ Profile *********************************/
+
+.button-icon {
+    padding               : 0;
+    background            : transparent;
+    border-color          : transparent;
+    box-shadow            : none;
+    border-radius         : 0;
+    font-size             : 18pt !important;
+}
+
+.button-icon:active,
+.button-icon:focus {
+    -webkit-box-shadow    : none;
+    -moz-box-shadow       : none;
+    box-shadow            : none;
+    border-color          : transparent;
+}
+
+.button-icon:active {
+    -webkit-transform     : scale(0.9);
+    -moz-transform        : scale(0.9);
+    -o-transform          : scale(0.9);
+    -ms-transform         : scale(0.9);
+    transform             : scale(0.9);
+}
+
+.button-icon:focus {
+    outline               : 0 none !important;
+}
+
+.button-icon .fa {
+    -webkit-transition    : color 0.1s ease;
+    -moz-transition       : color 0.1s ease;
+    -o-transition         : color 0.1s ease;
+    transition            : color 0.1s ease;
+}
+
+.button-icon .fa-star {
+    color                : #E3E3E3;
+}
+
+.button-icon .fa-star.active {
+    color                : #FECF15;
+}
+
 .card-profile {
     margin-left          : 30px;
     margin-right         : 30px;
@@ -171,16 +216,6 @@
 .card-profile .item {
     font-size            : 10pt;
 }
-
-/*.circle {
-    margin               : 0 auto;
-    width                : 140px;
-    height               : 140px;
-    -webkit-border-radius: 70px;
-    -moz-border-radius   : 70px;
-    border-radius        : 70px;
-    background           : #CCCCCC;
-}*/
 
 .favorite-icon:before {
     color                : white;

@@ -48,4 +48,20 @@ angular.module('app.directives', [])
             }
         }
     };
+})
+
+//
+.directive('buttonFavorite', function() {
+    return {
+        restrict: 'E',
+        scope: true,
+        template: '<button class="button button-icon"><i class="fa fa-star" ng-class="{active: profile.favorited}"></i></button>',
+        link: function(scope, elem) {
+            elem.bind('click', function() {
+                scope.$apply(function() {
+                    scope.addRemoveFavorite(scope.profile.restaurantId);
+                });
+            });
+        }
+    };
 });

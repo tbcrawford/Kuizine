@@ -11,9 +11,11 @@ All notable changes to Kuizine will documented in this file.
 
 ## [Unreleased]
 
+## [0.8.0] - 2016-04-22
 ### Added
 - Android and iOS app icon
 - Category descriptions
+- Completed signup functionality
 
 ### Changed
 - Changed the signup page CSS; still subject to change
@@ -21,7 +23,7 @@ All notable changes to Kuizine will documented in this file.
 - Login now persist after closing the app until user logs out
 - Changed about section on home page from lorem ipsum to actual info
 - Separated browse and category views to increase modularity and fix bugs
-- Completed signup functionality
+- Revamped favorite icon
 
 ### Fixed
 - The status bar now has color on Android
@@ -29,11 +31,15 @@ All notable changes to Kuizine will documented in this file.
 - Fixed the favorites icon being placed too high on Android only
 - Keyboard shows automatically on search icon click
 - Fixed bug that caused app to not show an error message after an invalid login after adding persistent logins
+- Made various code fixes
 
 ### Removed
 - Removed deprecated state call from nav menu to "kuizine.logout"
 
 ## [0.7.0] - 2016-04-16
+### Added
+- Created NetworkErrorService
+
 ### Changed
 - Cleaned up services and controllers
 - Browse now shows categories
@@ -43,9 +49,6 @@ All notable changes to Kuizine will documented in this file.
 
 ### Fixed
 - Fixed maps not showing
-
-### Added
-- Created NetworkErrorService
 
 ## [0.6.0] - 2016-04-14
 ### Changed

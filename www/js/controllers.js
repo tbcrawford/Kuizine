@@ -106,12 +106,16 @@ angular.module('app.controllers', [])
     $scope.days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
     //
-    $scope.addFavorite = function(restaurantId) {
-        //
-        $scope.profile.favorited = "true";
-        $state.go('kuizine.profile');
-        RestaurantDisplayService.addFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
-        });
+    $scope.addRemoveFavorite = function(restaurantId) {
+        if ($scope.profile.favorited) {
+            $scope.profile.favorited = !$scope.profile.favorited;
+            RestaurantDisplayService.removeFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
+            });
+        } else {
+            $scope.profile.favorited = !$scope.profile.favorited;
+            RestaurantDisplayService.addFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
+            });
+        }
     };
 
     //
@@ -144,15 +148,6 @@ angular.module('app.controllers', [])
     //
     $scope.openWebsiteLink = function() {
         window.open($scope.profile.restaurantWebsite, '_system', 'location=yes');
-    };
-
-    //
-    $scope.removeFavorite = function(restaurantId) {
-        //
-        $scope.profile.favorited = "false";
-        $state.go('kuizine.profile');
-        RestaurantDisplayService.removeFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
-        });
     };
 })
 

@@ -1,6 +1,6 @@
 {
   "name": "Kuizine",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Kuizine is a cross-platform mobile application designed that aggregates all of the restaurant options within the town of Kutztown, PA and provides relevant information including menu, contact information, and address of a restaurant in an intuitive, easy to use way.",
   "dependencies": {
     "gulp": "^3.5.6",

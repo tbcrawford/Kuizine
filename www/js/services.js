@@ -56,9 +56,9 @@ angular.module('app.services', [])
 
     //
     authenticationService.logout = function() {
-        $window.localStorage.removeItem('loggedIn')
-        $window.localStorage.removeItem('username')
-        $window.localStorage.removeItem('userId')
+        $window.localStorage.removeItem('loggedIn');
+        $window.localStorage.removeItem('username');
+        $window.localStorage.removeItem('userId');
         $state.go('kuizine.home');
     };
 
@@ -98,13 +98,13 @@ angular.module('app.services', [])
     restaurantDisplayService.getCategoryId = function() {
         //
         return $stateParams.categoryId;
-    }
+    };
 
     //
     restaurantDisplayService.getCategoryName = function() {
         //
         return $stateParams.categoryName;
-    }
+    };
 
     //
     restaurantDisplayService.getRestaurantsList = function(categoryId) {
@@ -166,7 +166,7 @@ angular.module('app.services', [])
         });
 
         //
-        deferred.resolve(query);
+        deferred.resolve();
         return deferred.promise;
     };
 
@@ -181,7 +181,7 @@ angular.module('app.services', [])
         });
 
         //
-        deferred.resolve(query);
+        deferred.resolve();
         return deferred.promise;
     };
 
@@ -200,6 +200,13 @@ angular.module('app.services', [])
         .then(function (response) {
             //
             var profile = response.data;
+
+            //
+            if (profile.favorited == "true") {
+                profile.favorited = true;
+            } else {
+                profile.favorited = false;
+            }
 
             //
             deferred.resolve(profile);
@@ -238,7 +245,7 @@ angular.module('app.services', [])
                 });
             }
         }
-    }
+    };
 
     //
     return networkErrorService;
