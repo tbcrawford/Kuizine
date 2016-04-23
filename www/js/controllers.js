@@ -1,10 +1,21 @@
 angular.module('app.controllers', [])
 
-//
-.controller('homeCtrl', function($scope) {
-})
 
-//
+/**
+ * Home controller
+ * @param  {[type]} 'homeCtrl'      [description]
+ * @param  {[type]} function($scope [description]
+ * @return {[type]}                 [description]
+ */
+.controller('homeCtrl', function($scope) {})
+
+
+/**
+ * Nav Menu Controller (Side-Menu)
+ * @param  {[type]} 'navmenuCtrl'                   [description]
+ * @param  {[type]} function(AuthenticationService, $ionicSideMenuDelegate, $scope [description]
+ * @return {[type]}                                 [description]
+ */
 .controller('navmenuCtrl', function(AuthenticationService, $ionicSideMenuDelegate, $scope) {
     //
     $scope.getLoginStatus = function() {
@@ -23,7 +34,13 @@ angular.module('app.controllers', [])
     };
 })
 
-//
+
+/**
+ * Search Controller
+ * @param  {[type]} 'searchCtrl'              [description]
+ * @param  {[type]} function($ionicFilterBar, NetworkErrorService, RestaurantDisplayService, $scope [description]
+ * @return {[type]}                           [description]
+ */
 .controller('searchCtrl', function($ionicFilterBar, NetworkErrorService, RestaurantDisplayService, $scope) {
     //
     $scope.items = [];
@@ -52,7 +69,13 @@ angular.module('app.controllers', [])
     };
 })
 
-//
+
+/**
+ * Browse Controller
+ * @param  {[type]} 'browseCtrl'                  [description]
+ * @param  {[type]} function(NetworkErrorService, RestaurantDisplayService, $scope [description]
+ * @return {[type]}                               [description]
+ */
 .controller('browseCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope) {
     //
     $scope.checkNetwork = function() {
@@ -74,7 +97,13 @@ angular.module('app.controllers', [])
     };
 })
 
-//
+
+/**
+ * Category Controller
+ * @param  {[type]} 'categoryCtrl'                [description]
+ * @param  {[type]} function(NetworkErrorService, RestaurantDisplayService, $scope [description]
+ * @return {[type]}                               [description]
+ */
 .controller('categoryCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope) {
     //
     $scope.checkNetwork = function() {
@@ -84,12 +113,12 @@ angular.module('app.controllers', [])
     //
     $scope.getCategoryId = function() {
         return RestaurantDisplayService.getCategoryId();
-    }
+    };
 
     //
     $scope.getCategoryName = function() {
         return RestaurantDisplayService.getCategoryName();
-    }
+    };
 
     //
     $scope.getRestaurantsList = function(categoryId) {
@@ -100,21 +129,24 @@ angular.module('app.controllers', [])
 })
 
 
-//
+/**
+ * Profile Controller
+ * @param  {[type]} 'profileCtrl'                   [description]
+ * @param  {[type]} function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope, $state [description]
+ * @return {[type]}                                 [description]
+ */
 .controller('profileCtrl', function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope, $state) {
     //
-    $scope.days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     //
     $scope.addRemoveFavorite = function(restaurantId) {
         if ($scope.profile.favorited) {
             $scope.profile.favorited = !$scope.profile.favorited;
-            RestaurantDisplayService.removeFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
-            });
+            RestaurantDisplayService.removeFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {});
         } else {
             $scope.profile.favorited = !$scope.profile.favorited;
-            RestaurantDisplayService.addFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {
-            });
+            RestaurantDisplayService.addFavorite(AuthenticationService.getUserId(), restaurantId).then(function(response) {});
         }
     };
 
@@ -151,7 +183,13 @@ angular.module('app.controllers', [])
     };
 })
 
-//
+
+/**
+ * Favorites Controller
+ * @param  {[type]} 'favoritesCtrl'                 [description]
+ * @param  {[type]} function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope [description]
+ * @return {[type]}                                 [description]
+ */
 .controller('favoritesCtrl', function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope) {
     //
     $scope.checkNetwork = function() {
@@ -167,10 +205,19 @@ angular.module('app.controllers', [])
     };
 })
 
-//
+
+/**
+ * Login Controller
+ * @param  {[type]} 'loginCtrl'                     [description]
+ * @param  {[type]} function(AuthenticationService, NetworkErrorService, $scope [description]
+ * @return {[type]}                                 [description]
+ */
 .controller('loginCtrl', function(AuthenticationService, NetworkErrorService, $scope) {
     //
-    $scope.credentials = {username: '', password: ''};
+    $scope.credentials = {
+        username: '',
+        password: ''
+    };
 
     //
     $scope.checkNetwork = function() {
@@ -179,15 +226,24 @@ angular.module('app.controllers', [])
 
     //
     $scope.login = function() {
-        AuthenticationService.login($scope.credentials.username, $scope.credentials.password).then(function(response) {
-        });
+        AuthenticationService.login($scope.credentials.username, $scope.credentials.password).then(function(response) {});
     };
 })
 
-//
+
+/**
+ * Signup Controller
+ * @param  {[type]} 'signupCtrl'                    [description]
+ * @param  {[type]} function(AuthenticationService, $http,        NetworkErrorService, $scope, $state, $q [description]
+ * @return {[type]}                                 [description]
+ */
 .controller('signupCtrl', function(AuthenticationService, $http, NetworkErrorService, $scope, $state, $q) {
     //
-    $scope.credentials = {username: '', password: '', reenter: ''};
+    $scope.credentials = {
+        username: '',
+        password: '',
+        reenter: ''
+    };
     $scope.error = "";
 
     //
@@ -200,43 +256,41 @@ angular.module('app.controllers', [])
         //
         if ($scope.credentials.username.length < 3 || $scope.credentials.username.length > 20) {
             $scope.error = "Username must be between 3 and 20 characters long";
-        }
-        else if (!RegExp("^[a-zA-Z0-9_]+$").test($scope.credentials.username)) {
+        } else if (!RegExp("^[a-zA-Z0-9_]+$").test($scope.credentials.username)) {
             $scope.error = "Username must only contain alphanumeric characters or underscores";
-        }
-        else if ($scope.credentials.password.length < 4 || $scope.credentials.password.length > 20) {
+        } else if ($scope.credentials.password.length < 4 || $scope.credentials.password.length > 20) {
             $scope.error = "Password must be between 4 and 20 characters long";
-        }
-        else if (!RegExp("^[a-zA-Z0-9_]+$").test($scope.credentials.password)) {
+        } else if (!RegExp("^[a-zA-Z0-9_]+$").test($scope.credentials.password)) {
             $scope.error = "Password must only contain alphanumeric characters or underscores";
-        }
-        else if ($scope.credentials.password != $scope.credentials.reenter) {
+        } else if ($scope.credentials.password != $scope.credentials.reenter) {
             $scope.error = "Passwords do not match";
-        }
-        else {
+        } else {
             $scope.validateServerSide();
         }
-    }
+    };
 
     $scope.validateServerSide = function() {
         //
         var deferred = $q.defer();
 
         //
-        $http.post('http://csit.kutztown.edu/kuizine/application_files/signup.php', {username: $scope.credentials.username, password: $scope.credentials.password})
-        .then(function (response) {
-            //
-            if (response.data.message == "SIGNUP-SUCCESS") {
-                $state.go('kuizine.home');
-            }
-            //
-            else {
-                $scope.error = response.data.message;
-            }
-        });
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/signup.php', {
+                username: $scope.credentials.username,
+                password: $scope.credentials.password
+            })
+            .then(function(response) {
+                //
+                if (response.data.message == "SIGNUP-SUCCESS") {
+                    $state.go('kuizine.home');
+                }
+                //
+                else {
+                    $scope.error = response.data.message;
+                }
+            });
 
         //
         deferred.resolve();
         return deferred.promise;
-    }
+    };
 });

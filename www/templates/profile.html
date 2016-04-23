@@ -1,55 +1,55 @@
 <ion-view cache-view="false">
-    <ion-nav-title>{{profile.restaurantName}}</ion-nav-title>
+    <ion-nav-title>{{ profile.restaurantName }}</ion-nav-title>
     <ion-nav-buttons side="secondary">
-        <div class="buttons" ng-if="getLoginStatus()">
+        <div ng-if="getLoginStatus()">
             <button-favorite ng-if="profile"></button-favorite>
         </div>
     </ion-nav-buttons>
     <ion-content has-header="true" has-tabs="true" style="bottom: 49px;" ng-init="checkNetwork(); getRestaurantProfile();">
         <br/>
         <div class="profile-picture">
-            <img height="140px" width="140px" src="http://csit.kutztown.edu/kuizine/application_files/images/restaurants/{{profile.restaurantId}}.png"></img>
+            <img height="140px" width="140px" src="http://csit.kutztown.edu/kuizine/application_files/images/restaurants/{{ profile.restaurantId }}.png"></img>
         </div>
         <div class="card card-profile">
             <div class="item item-divider">
-                Description
+                <label>Description</label>
             </div>
             <div class="item item-text-wrap">
-                {{profile.restaurantDescription}}
+                {{ profile.restaurantDescription }}
             </div>
         </div>
         <div class="card card-profile">
             <div class="item item-divider">
-                Address
+                <label>Address</label>
             </div>
             <div class="item item-text-wrap">
-                {{profile.restaurantAddress}}
+                {{ profile.restaurantAddress }}
             </div>
         </div>
         <div class="card card-profile">
             <div class="item item-divider">
-                Hours
+                <label>Hours</label>
             </div>
             <div class="item">
                 <table style="width:300px;">
-                    <tr ng:repeat="d in days">
-                        <td>{{d}}</td>
-                        <td>{{profile.restaurantHours[$index]}}</td>
+                    <tr ng:repeat="day in days">
+                        <td>{{ day }}</td>
+                        <td>{{ profile.restaurantHours[$index] }}</td>
                     </tr>
                 </table>
             </div>
         </div>
         <div class="card card-profile">
             <div class="item item-divider">
-                Phone Number
+                <label>Phone Number</label>
             </div>
             <div class="item item-text-wrap">
-                {{profile.restaurantPhone}}
+                {{ profile.restaurantPhone }}
             </div>
         </div>
         <div class="card card-profile">
             <div class="item item-divider">
-                Location
+                <label>Location</label>
             </div>
             <!-- Do not remove the empty div below, it keeps the corners from rounding on the item header -->
             <div></div>
@@ -58,7 +58,7 @@
         <br/>
     </ion-content>
     <div class="tabs tabs-icon-top">
-        <a href="tel:{{profile.restaurantPhone}}" class="tab-item">
+        <a href="tel:{{ profile.restaurantPhone }}" class="tab-item">
             <i class="icon tab-bar fa fa-phone"></i>Call
         </a>
         <a class="tab-item" ng-click="openMenuLink()">
@@ -67,7 +67,7 @@
         <a class="tab-item" ng-click="openWebsiteLink()">
             <i class="icon tab-bar fa fa-globe"></i>Website
         </a>
-        <a class="tab-item" href="mailto:{{profile.restaurantEmail}}">
+        <a class="tab-item" href="mailto:{{ profile.restaurantEmail }}">
             <i class="icon tab-bar fa fa-at"></i>Contact
         </a>
     </div>

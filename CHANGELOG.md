@@ -11,6 +11,12 @@ All notable changes to Kuizine will documented in this file.
 
 ## [Unreleased]
 
+### Changed
+- Reformatted code
+
+### Removed
+- Removed unnecessary code
+
 ## [0.8.0] - 2016-04-22
 ### Added
 - Android and iOS app icon

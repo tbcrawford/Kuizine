@@ -1,6 +1,11 @@
 angular.module('app.directives', [])
 
-//
+/**
+ * Map Directive for profile
+ * @param  {[type]} 'map'                             [description]
+ * @param  {[type]} function(RestaurantDisplayService [description]
+ * @return {[type]}                                   [description]
+ */
 .directive('map', function(RestaurantDisplayService) {
     return {
         restrict: 'E',
@@ -50,12 +55,17 @@ angular.module('app.directives', [])
     };
 })
 
-//
+/**
+ * Favorite button for profile
+ * @param  {[type]} 'buttonFavorite' [description]
+ * @param  {[type]} function(        [description]
+ * @return {[type]}                  [description]
+ */
 .directive('buttonFavorite', function() {
     return {
         restrict: 'E',
         scope: true,
-        template: '<button class="button button-icon"><i class="fa fa-star" ng-class="{active: profile.favorited}"></i></button>',
+        template: '<button class="favorite-icon button button-icon"><i class="fa fa-star" ng-class="{active: profile.favorited}"></i></button>',
         link: function(scope, elem) {
             elem.bind('click', function() {
                 scope.$apply(function() {

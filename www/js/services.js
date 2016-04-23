@@ -1,6 +1,15 @@
 angular.module('app.services', [])
 
-//
+/**
+ * Authentication Service factory
+ * @param  {[type]} 'AuthenticationService' [description]
+ * @param  {[type]} ['$http'                [description]
+ * @param  {[type]} '$q'                    [description]
+ * @param  {[type]} '$state'                [description]
+ * @param  {[type]} '$window'               [description]
+ * @param  {[type]} function($http,         $q,           $state, $window [description]
+ * @return {[type]}                         [description]
+ */
 .factory('AuthenticationService', ['$http', '$q', '$state', '$window', function($http, $q, $state, $window) {
     //
     var authenticationService = {};
@@ -11,20 +20,23 @@ angular.module('app.services', [])
         var deferred = $q.defer();
 
         //
-        $http.post('http://csit.kutztown.edu/kuizine/application_files/login.php', {username: user, password: pass})
-        .then(function (response) {
-            //
-            if (response.data.message == "AUTHORIZATION-SUCCESS") {
-                $window.localStorage.setItem('loggedIn', true);
-                $window.localStorage.setItem('username', user);
-                $window.localStorage.setItem('userId', response.data.userId);
-                $state.go('kuizine.home');
-            }
-            //
-            else {
-                $window.localStorage.setItem('loggedIn', false);
-            }
-        });
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/login.php', {
+                username: user,
+                password: pass
+            })
+            .then(function(response) {
+                //
+                if (response.data.message == "AUTHORIZATION-SUCCESS") {
+                    $window.localStorage.setItem('loggedIn', true);
+                    $window.localStorage.setItem('username', user);
+                    $window.localStorage.setItem('userId', response.data.userId);
+                    $state.go('kuizine.home');
+                }
+                //
+                else {
+                    $window.localStorage.setItem('loggedIn', false);
+                }
+            });
 
         //
         deferred.resolve();
@@ -35,11 +47,9 @@ angular.module('app.services', [])
     authenticationService.getLoginStatus = function() {
         if ($window.localStorage.getItem('loggedIn') == 'true') {
             return true;
-        }
-        else if ($window.localStorage.getItem('loggedIn') == 'false') {
+        } else if ($window.localStorage.getItem('loggedIn') == 'false') {
             return false;
-        }
-        else {
+        } else {
             return undefined;
         }
     };
@@ -67,7 +77,15 @@ angular.module('app.services', [])
 }])
 
 
-//
+/**
+ * Restaurant Display Service factory
+ * @param  {[type]} 'RestaurantDisplayService' [description]
+ * @param  {[type]} ['$http'                   [description]
+ * @param  {[type]} '$q'                       [description]
+ * @param  {[type]} '$stateParams'             [description]
+ * @param  {[type]} function($http,            $q,           $stateParams [description]
+ * @return {[type]}                            [description]
+ */
 .factory('RestaurantDisplayService', ['$http', '$q', '$stateParams', function($http, $q, $stateParams) {
     //
     var restaurantDisplayService = {};
@@ -80,15 +98,15 @@ angular.module('app.services', [])
 
         //
         $http.post('http://csit.kutztown.edu/kuizine/application_files/get_categories_list.php')
-        .then(function (response) {
-            for (var i = 0; i < response.data.length; i++) {
-                categoriesList.push(response.data[i]);
-            }
+            .then(function(response) {
+                for (var i = 0; i < response.data.length; i++) {
+                    categoriesList.push(response.data[i]);
+                }
 
-            //
-            deferred.resolve(categoriesList);
-            return categoriesList;
-        });
+                //
+                deferred.resolve(categoriesList);
+                return categoriesList;
+            });
 
         //
         return deferred.promise;
@@ -118,16 +136,19 @@ angular.module('app.services', [])
         }
 
         //
-        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurants_list.php', {dayOfWeek: restaurantDisplayService.getDay(), categoryId: categoryId})
-        .then(function (response) {
-            for (var i = 0; i < response.data.length; i++) {
-                restaurantsList.push(response.data[i]);
-            }
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurants_list.php', {
+                dayOfWeek: restaurantDisplayService.getDay(),
+                categoryId: categoryId
+            })
+            .then(function(response) {
+                for (var i = 0; i < response.data.length; i++) {
+                    restaurantsList.push(response.data[i]);
+                }
 
-            //
-            deferred.resolve(restaurantsList);
-            return restaurantsList;
-        });
+                //
+                deferred.resolve(restaurantsList);
+                return restaurantsList;
+            });
 
         //
         return deferred.promise;
@@ -140,16 +161,19 @@ angular.module('app.services', [])
         var favoritesList = [];
 
         //
-        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_favorites_list.php', {userId: userId, dayOfWeek: restaurantDisplayService.getDay()})
-        .then(function (response) {
-            for (var i = 0; i < response.data.length; i++) {
-                favoritesList.push(response.data[i]);
-            }
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_favorites_list.php', {
+                userId: userId,
+                dayOfWeek: restaurantDisplayService.getDay()
+            })
+            .then(function(response) {
+                for (var i = 0; i < response.data.length; i++) {
+                    favoritesList.push(response.data[i]);
+                }
 
-            //
-            deferred.resolve(favoritesList);
-            return favoritesList;
-        });
+                //
+                deferred.resolve(favoritesList);
+                return favoritesList;
+            });
 
         //
         return deferred.promise;
@@ -161,9 +185,11 @@ angular.module('app.services', [])
         var deferred = $q.defer();
 
         //
-        $http.post('http://csit.kutztown.edu/kuizine/application_files/add_favorite.php', {userId: userId, restaurantId: restaurantId})
-        .then(function (response) {
-        });
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/add_favorite.php', {
+                userId: userId,
+                restaurantId: restaurantId
+            })
+            .then(function(response) {});
 
         //
         deferred.resolve();
@@ -176,9 +202,11 @@ angular.module('app.services', [])
         var deferred = $q.defer();
 
         //
-        $http.post('http://csit.kutztown.edu/kuizine/application_files/remove_favorite.php', {userId: userId, restaurantId: restaurantId})
-        .then(function (response) {
-        });
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/remove_favorite.php', {
+                userId: userId,
+                restaurantId: restaurantId
+            })
+            .then(function(response) {});
 
         //
         deferred.resolve();
@@ -196,22 +224,25 @@ angular.module('app.services', [])
         }
 
         //
-        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {restaurantId: $stateParams.restaurantId, userId: userId})
-        .then(function (response) {
-            //
-            var profile = response.data;
+        $http.post('http://csit.kutztown.edu/kuizine/application_files/get_restaurant_profile.php', {
+                restaurantId: $stateParams.restaurantId,
+                userId: userId
+            })
+            .then(function(response) {
+                //
+                var profile = response.data;
 
-            //
-            if (profile.favorited == "true") {
-                profile.favorited = true;
-            } else {
-                profile.favorited = false;
-            }
+                //
+                if (profile.favorited == "true") {
+                    profile.favorited = true;
+                } else {
+                    profile.favorited = false;
+                }
 
-            //
-            deferred.resolve(profile);
-            return profile;
-        });
+                //
+                deferred.resolve(profile);
+                return profile;
+            });
 
         //
         return deferred.promise;
@@ -227,22 +258,30 @@ angular.module('app.services', [])
     return restaurantDisplayService;
 }])
 
-//
+
+/**
+ * Network Error Service factory
+ * @param  {[type]} 'NetworkErrorService' [description]
+ * @param  {[type]} ['$ionicPopup'        [description]
+ * @param  {[type]} '$state'              [description]
+ * @param  {[type]} function($ionicPopup, $state        [description]
+ * @return {[type]}                       [description]
+ */
 .factory('NetworkErrorService', ['$ionicPopup', '$state', function($ionicPopup, $state) {
     //
     var networkErrorService = {};
 
     //
     networkErrorService.checkNetwork = function() {
-        if(window.Connection) {
-            if(navigator.connection.type == Connection.NONE) {
+        if (window.Connection) {
+            if (navigator.connection.type == Connection.NONE) {
                 $ionicPopup.alert({
-                    title: 'No Network Connection',
-                    content: 'Please connect to a network to use this functionality.'
-                })
-                .then(function(result) {
-                    $state.go('kuizine.home');
-                });
+                        title: 'No Network Connection',
+                        content: 'Please connect to a network to use this functionality.'
+                    })
+                    .then(function(result) {
+                        $state.go('kuizine.home');
+                    });
             }
         }
     };
