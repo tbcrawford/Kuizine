@@ -13,6 +13,7 @@ All notable changes to Kuizine will documented in this file.
 
 ### Changed
 - Reformatted code
+- Added news to homepage
 
 ### Removed
 - Removed unnecessary code
