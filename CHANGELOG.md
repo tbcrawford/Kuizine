@@ -14,6 +14,7 @@ All notable changes to Kuizine will documented in this file.
 ### Changed
 - Reformatted code
 - Added news to homepage
+- Contact button not shown in profile if restaurant has no associated email address
 
 ### Removed
 - Removed unnecessary code
