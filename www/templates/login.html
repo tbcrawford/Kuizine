@@ -16,7 +16,7 @@
                     <input type="password" name="password" placeholder="password" ng-model="credentials.password">
                 </label>
                 <br>
-                <div class="login-error" ng-if="!getLoginStatus()">
+                <div class="login-error" ng-if="getLoginStatus() == false">
                     <p>Incorrect username or password</p>
                 </div>
                 <div class="horizontal-center">

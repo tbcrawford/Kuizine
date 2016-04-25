@@ -64,7 +64,7 @@ angular.module('app.controllers', [])
             update: function(filteredItems) {
                 $scope.restaurantsList = filteredItems;
             },
-            filteredProperties: 'restaurantName'
+            filterProperties: 'restaurantTags'
         });
     };
 })
