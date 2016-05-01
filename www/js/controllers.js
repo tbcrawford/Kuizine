@@ -181,6 +181,15 @@ angular.module('app.controllers', [])
     $scope.openWebsiteLink = function() {
         window.open($scope.profile.restaurantWebsite, '_system', 'location=yes');
     };
+
+    //
+    $scope.openExternalMaps = function() {
+        if (ionic.Platform.isAndroid()) {
+            window.open("http://maps.google.com/maps?daddr=" + $scope.profile.restaurantAddress, '_system');
+        } else {
+            window.open("maps://maps.apple.com/?daddr=" + $scope.profile.restaurantAddress, '_system');
+        }
+    };
 })
 
 

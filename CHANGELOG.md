@@ -11,6 +11,9 @@ All notable changes to Kuizine will documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Tapping Location text will open restaurant location to external maps application
+
 ### Changed
 - Reformatted code
 - Added news to homepage
