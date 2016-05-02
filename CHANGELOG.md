@@ -11,13 +11,16 @@ All notable changes to Kuizine will documented in this file.
 
 ## [Unreleased]
 
+## [0.9.0] - 2016-05-02
 ### Added
 - Tapping Location text will open restaurant location to external maps application
+- Added splashscreen for Android and iOS
 
 ### Changed
 - Reformatted code
 - Added news to homepage
 - Contact button not shown in profile if restaurant has no associated email address
+- Updated Ionic lib to 1.3.0
 
 ### Removed
 - Removed unnecessary code
