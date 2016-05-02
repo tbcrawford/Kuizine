@@ -11,6 +11,9 @@ All notable changes to Kuizine will documented in this file.
 
 ## [Unreleased]
 
+### Changed
+- Made the Kuizine app icon smaller
+
 ## [0.9.0] - 2016-05-02
 ### Added
 - Tapping Location text will open restaurant location to external maps application
