@@ -257,26 +257,27 @@ angular.module('app.controllers', [])
     // If an account exists, show the error message, else create a new account
     // and redirect home
     $scope.validateServerSide = function() {
-        // 
+        // Defer variable instantiated for use in asynchronous functionality
         var deferred = $q.defer();
 
-        //
+        // Communicate with server via http
+        // Pass username and password to server and get a response
         $http.post('http://csit.kutztown.edu/kuizine/application_files/signup.php', {
                 username: $scope.credentials.username,
                 password: $scope.credentials.password
             })
             .then(function(response) {
-                //
+                // If server indicates that login is successful, redirect home
                 if (response.data.message == "SIGNUP-SUCCESS") {
                     $state.go('kuizine.home');
                 }
-                //
+                // If login is unsuccessful, show the user an error message
                 else {
                     $scope.error = response.data.message;
                 }
             });
 
-        //
+        // Resolve and return the deferred promise
         deferred.resolve();
         return deferred.promise;
     };

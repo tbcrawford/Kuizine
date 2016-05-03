@@ -7,13 +7,16 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
 .config(function($stateProvider, $urlRouterProvider, $ionicFilterBarConfigProvider, $ionicConfigProvider) {
     $stateProvider
 
-        .state('kuizine', {
+    // Kuizine route configuration
+    .state('kuizine', {
         url: '/menu',
         abstract: true,
         templateUrl: 'templates/nav-menu.html',
         controller: 'navmenuCtrl'
     })
 
+    // Home page view
+    // Displays information about the app and news
     .state('kuizine.home', {
         url: '/home',
         views: {
@@ -24,6 +27,8 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
         }
     })
 
+    // Search page view
+    // Allows a user to search for restaurants by name or metatag
     .state('kuizine.search', {
         url: '/search',
         views: {
@@ -34,6 +39,8 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
         }
     })
 
+    // Browse page view
+    // Displays a list of all categories to browse through
     .state('kuizine.browse', {
         url: '/browse',
         views: {
@@ -44,6 +51,11 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
         }
     })
 
+    // Category page view
+    // This view is accessed by selecting a specific category from browse and will
+    // display a list of each restaurant in the category.
+    // categoryId and categoryName URL parameters are for passing these variables
+    // from browse
     .state('kuizine.category', {
         url: '/category?categoryId?categoryName',
         views: {
@@ -54,6 +66,9 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
         }
     })
 
+    // Profile page views
+    // URL parameter restaurantID allows for passing this info from category/search
+    // view easily
     .state('kuizine.profile', {
         url: '/profile?restaurantId',
         views: {
@@ -64,6 +79,8 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
         }
     })
 
+    // Favorites page view
+    // Displays a list of a mobile user's favorite restaurants
     .state('kuizine.favorites', {
         url: '/favorites',
         views: {
@@ -74,6 +91,8 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
         }
     })
 
+    // Login page view
+    // Allows a user to log in as a mobile user
     .state('kuizine.login', {
         url: '/login',
         views: {
@@ -84,6 +103,8 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
         }
     })
 
+    // Signup page view
+    // Allows a mobile guest to sign up as a mobile user
     .state('kuizine.signup', {
         url: '/signup',
         views: {
@@ -94,13 +115,13 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
         }
     });
 
-    //
+    // Set default url router provider
     $urlRouterProvider.otherwise('/menu/home');
 
-    //
+    // Set ionic filter bar theme
     $ionicFilterBarConfigProvider.theme('calm');
 
-    //
+    // Disable swipe back feature on iOS
     $ionicConfigProvider.views.swipeBackEnabled(false);
 
 });
