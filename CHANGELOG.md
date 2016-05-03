@@ -11,6 +11,7 @@ All notable changes to Kuizine will documented in this file.
 
 ## [Unreleased]
 
+## [1.0.0] - 2016-05-03
 ### Added
 - Commented the HTML and AngularJS files
 
