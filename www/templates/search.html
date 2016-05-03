@@ -1,19 +1,31 @@
 <ion-view cache-view="false">
+
+    <!-- Search Header -->
     <ion-nav-title>Search</ion-nav-title>
+
+    <!-- Show search icon on right side of header -->
     <ion-nav-buttons side="secondary">
         <div class="buttons">
             <button class="button button-icon ion-ios-search-strong" ng-click="showFilterBar()"></button>
         </div>
     </ion-nav-buttons>
+
+    <!-- Search Content -->
     <ion-content class="has-header" ng-init="checkNetwork(); getRestaurantsList();">
+
+        <!-- List all restaurants to start -->
         <div ng-repeat="restaurant in restaurantsList">
             <div class="list list-browse">
+
+                <!-- Each restaurant item contains image, name, and today's hours -->
                 <a ui-sref="kuizine.profile({ restaurantId: '{{ restaurant.restaurantId }}' })" class="item item-icon-left item-browse">
                     <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/restaurants/{{ restaurant.restaurantId }}.png"></img>
                     <h2 class="card-header">{{ restaurant.restaurantName }}</h2>
                     <p class="card-hours">{{ restaurant.restaurantHours }}</p>
                 </a>
+                
             </div>
         </div>
+
     </ion-content>
 </ion-view>

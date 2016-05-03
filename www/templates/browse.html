@@ -1,14 +1,23 @@
 <ion-view cache-view="false">
+    <!-- Browse Header -->
     <ion-nav-title>Browse</ion-nav-title>
+
+    <!-- Page Content -->
     <ion-content class="has-header" ng-init="checkNetwork(); getCategoriesList();">
+
+        <!-- Create list of categories -->
         <div ng-repeat="category in categoriesList">
             <div class="list list-browse">
+
+                <!-- Category item consists of icon, name, and description -->
                 <a ui-sref="kuizine.category({ categoryId: '{{ category.categoryId }}', categoryName: '{{ category.categoryName }}' })" class="item item-icon-left item-browse">
                     <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/categories/{{ category.categoryId }}.png"></img>
                     <h2 class="card-header">{{ category.categoryName }}</h2>
                     <p class="card-hours">{{ category.categoryDescription }}</p>
                 </a>
+
             </div>
         </div>
+
     </ion-content>
 </ion-view>

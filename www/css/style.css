@@ -35,6 +35,10 @@
     color                : white;
 }
 
+.back-button {
+    color: white !important;
+}
+
 
 /*********************************** Header ***********************************/
 .bar {

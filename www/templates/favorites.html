@@ -1,14 +1,24 @@
 <ion-view cache-view="false">
+
+    <!-- Favorites Header -->
     <ion-nav-title>Favorites</ion-nav-title>
-    <ion-content class="has-header browse-content" ng-init="checkNetwork(); getFavoritesList();">
+
+    <!-- Favorites Content -->
+    <ion-content class="has-header" ng-init="checkNetwork(); getFavoritesList();">
+
+        <!-- List user favorites -->
         <div ng-repeat="favorite in favoritesList">
             <div class="list list-browse">
+
+                <!-- Favorite item has restaurant icon, restaurant name, today's hours -->
                 <a ui-sref="kuizine.profile({ restaurantId: '{{ favorite.restaurantId }}' })" class="item item-icon-left item-browse">
                     <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/restaurants/{{ favorite.restaurantId }}.png"></img>
                     <h2 class="card-header">{{ favorite.restaurantName }}</h2>
                     <p class="card-hours">{{ favorite.restaurantHours }}</p>
                 </a>
+
             </div>
         </div>
+
     </ion-content>
 </ion-view>

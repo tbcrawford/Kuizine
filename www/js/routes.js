@@ -3,8 +3,6 @@ angular.module('app.routes', ['ionic', 'jett.ionic.filter.bar'])
 
 /**
  * Configurator for views
- * @param  {[type]} function($stateProvider, $urlRouterProvider, $ionicFilterBarConfigProvider, $ionicConfigProvider [description]
- * @return {[type]}                          [description]
  */
 .config(function($stateProvider, $urlRouterProvider, $ionicFilterBarConfigProvider, $ionicConfigProvider) {
     $stateProvider

@@ -3,31 +3,25 @@ angular.module('app.controllers', [])
 
 /**
  * Home controller
- * @param  {[type]} 'homeCtrl'      [description]
- * @param  {[type]} function($scope [description]
- * @return {[type]}                 [description]
  */
 .controller('homeCtrl', function($scope) {})
 
 
 /**
  * Nav Menu Controller (Side-Menu)
- * @param  {[type]} 'navmenuCtrl'                   [description]
- * @param  {[type]} function(AuthenticationService, $ionicSideMenuDelegate, $scope [description]
- * @return {[type]}                                 [description]
  */
 .controller('navmenuCtrl', function(AuthenticationService, $ionicSideMenuDelegate, $scope) {
-    //
+    // Get the current login status of the user
     $scope.getLoginStatus = function() {
         return AuthenticationService.getLoginStatus();
     };
 
-    //
+    // Get the logged in user's username
     $scope.getUsername = function() {
         return AuthenticationService.getUsername();
     };
 
-    //
+    // Log the current user out of the app and toggle the side menu
     $scope.logout = function() {
         $ionicSideMenuDelegate.toggleLeft();
         AuthenticationService.logout();
@@ -37,27 +31,22 @@ angular.module('app.controllers', [])
 
 /**
  * Search Controller
- * @param  {[type]} 'searchCtrl'              [description]
- * @param  {[type]} function($ionicFilterBar, NetworkErrorService, RestaurantDisplayService, $scope [description]
- * @return {[type]}                           [description]
  */
 .controller('searchCtrl', function($ionicFilterBar, NetworkErrorService, RestaurantDisplayService, $scope) {
-    //
-    $scope.items = [];
-
-    //
+    // Checks to make sure there is a network connection
     $scope.checkNetwork = function() {
         NetworkErrorService.checkNetwork();
     };
 
-    //
+    // Gets all restaurants and puts them into a list
+    // 12 is denoted as the 'All' category
     $scope.getRestaurantsList = function() {
         RestaurantDisplayService.getRestaurantsList(12).then(function(response) {
             $scope.restaurantsList = response;
         });
     };
 
-    //
+    // Filters the restaurants based on a user query
     $scope.showFilterBar = function() {
         filterBarInstance = $ionicFilterBar.show({
             items: $scope.restaurantsList,
@@ -72,24 +61,22 @@ angular.module('app.controllers', [])
 
 /**
  * Browse Controller
- * @param  {[type]} 'browseCtrl'                  [description]
- * @param  {[type]} function(NetworkErrorService, RestaurantDisplayService, $scope [description]
- * @return {[type]}                               [description]
  */
 .controller('browseCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope) {
-    //
+    // Checks to make sure there is a network connection
     $scope.checkNetwork = function() {
         NetworkErrorService.checkNetwork();
     };
 
-    //
+    // Gets a list of all of the categories
     $scope.getCategoriesList = function() {
         RestaurantDisplayService.getCategoriesList().then(function(response) {
             $scope.categoriesList = response;
         });
     };
 
-    //
+    // Gets a list of restaurants based on the categoryId
+    // categoryId refers to a category number that relates to the category name
     $scope.getRestaurantsList = function(categoryId) {
         RestaurantDisplayService.getRestaurantsList(categoryId).then(function(response) {
             $scope.restaurantsList = response;
@@ -100,27 +87,25 @@ angular.module('app.controllers', [])
 
 /**
  * Category Controller
- * @param  {[type]} 'categoryCtrl'                [description]
- * @param  {[type]} function(NetworkErrorService, RestaurantDisplayService, $scope [description]
- * @return {[type]}                               [description]
  */
 .controller('categoryCtrl', function(NetworkErrorService, RestaurantDisplayService, $scope) {
-    //
+    // Checks to make sure there is a network connection
     $scope.checkNetwork = function() {
         NetworkErrorService.checkNetwork();
     };
 
-    //
+    // Gets the current categories id
     $scope.getCategoryId = function() {
         return RestaurantDisplayService.getCategoryId();
     };
 
-    //
+    // Gets the current categories name
     $scope.getCategoryName = function() {
         return RestaurantDisplayService.getCategoryName();
     };
 
-    //
+    // Gets a list of restaurants based on the categoryId
+    // categoryId refers to a category number that relates to the category name
     $scope.getRestaurantsList = function(categoryId) {
         RestaurantDisplayService.getRestaurantsList(categoryId).then(function(response) {
             $scope.restaurantsList = response;
@@ -131,15 +116,13 @@ angular.module('app.controllers', [])
 
 /**
  * Profile Controller
- * @param  {[type]} 'profileCtrl'                   [description]
- * @param  {[type]} function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope, $state [description]
- * @return {[type]}                                 [description]
  */
 .controller('profileCtrl', function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope, $state) {
-    //
+    // A list of days of the week
     $scope.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-    //
+    // Adds or removes a favorite restaurant based on the current state of whether
+    // or not the restaurant is currently favorited
     $scope.addRemoveFavorite = function(restaurantId) {
         if ($scope.profile.favorited) {
             $scope.profile.favorited = !$scope.profile.favorited;
@@ -150,39 +133,40 @@ angular.module('app.controllers', [])
         }
     };
 
-    //
+    // Checks to make sure there is a network connection
     $scope.checkNetwork = function() {
         NetworkErrorService.checkNetwork();
     };
 
-    //
+    // Gets the current day of the week
     $scope.getDay = function() {
         return RestaurantDisplayService.getDay();
     };
 
-    //
+    // Get the current login status of the user
     $scope.getLoginStatus = function() {
         return AuthenticationService.getLoginStatus();
     };
 
-    //
+    // Gets the current restaurants profile data
+    // The user id is passed to the getRestaurantProfile
     $scope.getRestaurantProfile = function() {
         RestaurantDisplayService.getRestaurantProfile(AuthenticationService.getUserId()).then(function(response) {
             $scope.profile = response;
         });
     };
 
-    //
+    // Open the restaurant menu link in the system browser
     $scope.openMenuLink = function() {
         window.open($scope.profile.restaurantMenuLink, '_system', 'location=yes');
     };
 
-    //
+    // Open the restaurant website link in the system browser
     $scope.openWebsiteLink = function() {
         window.open($scope.profile.restaurantWebsite, '_system', 'location=yes');
     };
 
-    //
+    // Open the system maps app with the restaurant address preloaded into the app
     $scope.openExternalMaps = function() {
         if (ionic.Platform.isAndroid()) {
             window.open("http://maps.google.com/maps?daddr=" + $scope.profile.restaurantAddress, '_system');
@@ -195,19 +179,15 @@ angular.module('app.controllers', [])
 
 /**
  * Favorites Controller
- * @param  {[type]} 'favoritesCtrl'                 [description]
- * @param  {[type]} function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope [description]
- * @return {[type]}                                 [description]
  */
 .controller('favoritesCtrl', function(AuthenticationService, NetworkErrorService, RestaurantDisplayService, $scope) {
-    //
+    // Checks to make sure there is a network connection
     $scope.checkNetwork = function() {
         NetworkErrorService.checkNetwork();
     };
 
-    //
+    // Get the list of favorite restaurants based on the user id
     $scope.getFavoritesList = function() {
-        //
         RestaurantDisplayService.getFavoritesList(AuthenticationService.getUserId()).then(function(response) {
             $scope.favoritesList = response;
         });
@@ -217,23 +197,20 @@ angular.module('app.controllers', [])
 
 /**
  * Login Controller
- * @param  {[type]} 'loginCtrl'                     [description]
- * @param  {[type]} function(AuthenticationService, NetworkErrorService, $scope [description]
- * @return {[type]}                                 [description]
  */
 .controller('loginCtrl', function(AuthenticationService, NetworkErrorService, $scope) {
-    //
+    // Initialize the credentials as empty
     $scope.credentials = {
         username: '',
         password: ''
     };
 
-    //
+    // Checks to make sure there is a network connection
     $scope.checkNetwork = function() {
         NetworkErrorService.checkNetwork();
     };
 
-    //
+    // Logs the user into the application
     $scope.login = function() {
         AuthenticationService.login($scope.credentials.username, $scope.credentials.password).then(function(response) {});
     };
@@ -242,27 +219,25 @@ angular.module('app.controllers', [])
 
 /**
  * Signup Controller
- * @param  {[type]} 'signupCtrl'                    [description]
- * @param  {[type]} function(AuthenticationService, $http,        NetworkErrorService, $scope, $state, $q [description]
- * @return {[type]}                                 [description]
  */
 .controller('signupCtrl', function(AuthenticationService, $http, NetworkErrorService, $scope, $state, $q) {
-    //
+    // Initializes the credentials as empty
     $scope.credentials = {
         username: '',
         password: '',
         reenter: ''
     };
+
+    // Initialize the error message to empty string
     $scope.error = "";
 
-    //
+    // Checks to make sure there is a network connection
     $scope.checkNetwork = function() {
         NetworkErrorService.checkNetwork();
     };
 
-    //
+    // Validate input on the client side
     $scope.validateClientSide = function() {
-        //
         if ($scope.credentials.username.length < 3 || $scope.credentials.username.length > 20) {
             $scope.error = "Username must be between 3 and 20 characters long";
         } else if (!RegExp("^[a-zA-Z0-9_]+$").test($scope.credentials.username)) {
@@ -278,8 +253,11 @@ angular.module('app.controllers', [])
         }
     };
 
+    // If the input is legal, check to make sure an account does not already exist.
+    // If an account exists, show the error message, else create a new account
+    // and redirect home
     $scope.validateServerSide = function() {
-        //
+        // 
         var deferred = $q.defer();
 
         //

@@ -1,20 +1,33 @@
 <ion-side-menus enable-menu-with-back-views="false">
+
+    <!-- General App Info relating to header and side-menu -->
     <ion-side-menu-content>
+        <!-- General App Header Information -->
         <ion-nav-bar class="bar-mat">
-            <ion-nav-back-button style="color:white;"></ion-nav-back-button>
+            <!-- Back button for pages -->
+            <ion-nav-back-button class="back-button"></ion-nav-back-button>
+
+            <!-- Menu button for pages -->
             <ion-nav-buttons side="left">
                 <button class="button button-icon button-clear ion-navicon" menu-toggle></button>
             </ion-nav-buttons>
         </ion-nav-bar>
         <ion-nav-view name="side-menu"></ion-nav-view>
     </ion-side-menu-content>
+
+    <!-- Side Menu content -->
     <ion-side-menu side="left" class="side-menu-container">
+
+        <!-- Side Menu Header -->
         <ion-header-bar class="bar-mat side-menu-style">
+            <!-- Show Logo and welcome current user -->
             <div class="logo">
                 <img height="100px" width="100px" src="images/logo_high_contrast.png"></img>
                 <p ng-if="getLoginStatus()">Welcome, {{ getUsername() }}!</p>
             </div>
         </ion-header-bar>
+
+        <!-- Navigation list items -->
         <ion-content class="side-menu-left has-header">
             <ion-list>
                 <a ui-sref="kuizine.home" ui-sref-active="active-item" class="item nav-list-item" menu-close><i class="fa fa-home nav-icon"></i>Home</a>

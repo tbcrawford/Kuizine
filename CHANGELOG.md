@@ -11,6 +11,9 @@ All notable changes to Kuizine will documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Commented the HTML and AngularJS files
+
 ### Changed
 - Made the Kuizine app icon smaller
 

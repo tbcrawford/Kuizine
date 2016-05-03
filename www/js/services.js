@@ -2,13 +2,6 @@ angular.module('app.services', [])
 
 /**
  * Authentication Service factory
- * @param  {[type]} 'AuthenticationService' [description]
- * @param  {[type]} ['$http'                [description]
- * @param  {[type]} '$q'                    [description]
- * @param  {[type]} '$state'                [description]
- * @param  {[type]} '$window'               [description]
- * @param  {[type]} function($http,         $q,           $state, $window [description]
- * @return {[type]}                         [description]
  */
 .factory('AuthenticationService', ['$http', '$q', '$state', '$window', function($http, $q, $state, $window) {
     //
@@ -261,11 +254,6 @@ angular.module('app.services', [])
 
 /**
  * Network Error Service factory
- * @param  {[type]} 'NetworkErrorService' [description]
- * @param  {[type]} ['$ionicPopup'        [description]
- * @param  {[type]} '$state'              [description]
- * @param  {[type]} function($ionicPopup, $state        [description]
- * @return {[type]}                       [description]
  */
 .factory('NetworkErrorService', ['$ionicPopup', '$state', function($ionicPopup, $state) {
     //

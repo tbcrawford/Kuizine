@@ -1,10 +1,9 @@
 angular.module('app.directives', [])
 
 /**
- * Map Directive for profile
- * @param  {[type]} 'map'                             [description]
- * @param  {[type]} function(RestaurantDisplayService [description]
- * @return {[type]}                                   [description]
+ * Map Directive for profile. Loads a map with a marker over top of the restaurant
+ * based on the restaurant address. This uses geocoding to accomplish this by
+ * getting the latitude and longitude based on the address.
  */
 .directive('map', function(RestaurantDisplayService) {
     return {
@@ -14,6 +13,8 @@ angular.module('app.directives', [])
             onCreate: '&'
         },
         link: function($scope, $element, $attrs) {
+            // Make a new geocoder, get the latitude and longitude from the
+            // restaurant address and place a marker at this latitude and longitude
             function initialize() {
                 var geocoder = new google.maps.Geocoder();
                 geocoder.geocode({
@@ -56,16 +57,15 @@ angular.module('app.directives', [])
 })
 
 /**
- * Favorite button for profile
- * @param  {[type]} 'buttonFavorite' [description]
- * @param  {[type]} function(        [description]
- * @return {[type]}                  [description]
+ * Favorite button for profile toggles the state of the icon. When the icon is
+ * active (yellow) the restaurant is favorited; when inactive (gray) the
+ * restaurant is not favorited.
  */
 .directive('buttonFavorite', function() {
     return {
         restrict: 'E',
         scope: true,
-        template: '<button class="favorite-icon button button-icon"><i class="fa fa-star" ng-class="{active: profile.favorited}"></i></button>',
+        template: '<button class="favorite-icon button button-icon"><i class="fa fa-star" ng-class="{ active: profile.favorited }"></i></button>',
         link: function(scope, elem) {
             elem.bind('click', function() {
                 scope.$apply(function() {

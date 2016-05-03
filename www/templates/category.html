@@ -1,14 +1,23 @@
 <ion-view cache-view="false">
+    <!-- Category Header with name -->
     <ion-nav-title>{{getCategoryName()}}</ion-nav-title>
+
+    <!-- Cateogry Content -->
     <ion-content class="has-header" ng-init="checkNetwork(); getRestaurantsList(getCategoryId());">
+
+        <!-- List restaurants that belong to cateogry -->
         <div ng-repeat="restaurant in restaurantsList">
             <div class="list list-browse">
+
+                <!-- Profile item has icon, name, today's hours -->
                 <a ui-sref="kuizine.profile({ restaurantId: '{{ restaurant.restaurantId }}' })" class="item item-icon-left item-browse">
                     <img class="icon restaurant-list-item" src="http://csit.kutztown.edu/kuizine/application_files/images/restaurants/{{ restaurant.restaurantId }}.png"></img>
                     <h2 class="card-header">{{ restaurant.restaurantName }}</h2>
                     <p class="card-hours">{{ restaurant.restaurantHours }}</p>
                 </a>
+
             </div>
         </div>
+        
     </ion-content>
 </ion-view>

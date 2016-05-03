@@ -1,15 +1,22 @@
 <ion-view cache-view="false">
+
+    <!-- Header and navigation -->
     <ion-nav-title>{{ profile.restaurantName }}</ion-nav-title>
     <ion-nav-buttons side="secondary">
         <div ng-if="getLoginStatus()">
             <button-favorite ng-if="profile"></button-favorite>
         </div>
     </ion-nav-buttons>
+
+    <!-- Page content -->
     <ion-content has-header="true" has-tabs="true" style="bottom: 49px;" ng-init="checkNetwork(); getRestaurantProfile();">
         <br/>
+        <!-- Profile picture -->
         <div class="profile-picture">
             <img height="140px" width="140px" src="http://csit.kutztown.edu/kuizine/application_files/images/restaurants/{{ profile.restaurantId }}.png"></img>
         </div>
+
+        <!-- Restaurant Description Card -->
         <div class="card card-profile">
             <div class="item item-divider">
                 <label>Description</label>
@@ -18,6 +25,8 @@
                 {{ profile.restaurantDescription }}
             </div>
         </div>
+
+        <!-- Restaurant Address Card -->
         <div class="card card-profile">
             <div class="item item-divider">
                 <label>Address</label>
@@ -26,6 +35,8 @@
                 {{ profile.restaurantAddress }}
             </div>
         </div>
+
+        <!-- Restaurant Hours Card -->
         <div class="card card-profile">
             <div class="item item-divider">
                 <label>Hours</label>
@@ -39,6 +50,8 @@
                 </table>
             </div>
         </div>
+
+        <!-- Restaurant Phone Number Card -->
         <div class="card card-profile">
             <div class="item item-divider">
                 <label>Phone Number</label>
@@ -47,28 +60,46 @@
                 {{ profile.restaurantPhone }}
             </div>
         </div>
+
+        <!-- Restaurant Location 'Card' -->
         <div class="card card-profile">
             <div class="item item-divider">
-                <label ng-click="openExternalMaps()"><u>Location</u></label>
+                <label>Location</label>
             </div>
             <!-- Do not remove the empty div below, it keeps the corners from rounding on the item header -->
             <div></div>
         </div>
+        <!-- Location Card 'Content' -->
         <map ng-if="profile" address="profile.restaurantAddress" on-create="mapCreated(map)"></map>
         <br/>
     </ion-content>
+
+    <!-- Profile Tab Bar -->
     <div class="tabs tabs-icon-top">
+        <!-- Call Item -->
         <a href="tel:{{ profile.restaurantPhone }}" class="tab-item">
             <i class="icon tab-bar fa fa-phone"></i>Call
         </a>
+
+        <!-- Menu Link Item -->
         <a class="tab-item" ng-click="openMenuLink()">
             <i class="icon tab-bar fa fa-cutlery"></i>Menu
         </a>
+
+        <!-- Website Link Item -->
         <a class="tab-item" ng-click="openWebsiteLink()">
             <i class="icon tab-bar fa fa-globe"></i>Website
         </a>
+
+        <!-- Contact/Email Item -->
         <a class="tab-item" href="mailto:{{ profile.restaurantEmail }}" ng-if="profile.restaurantEmail != ''">
             <i class="icon tab-bar fa fa-at"></i>Contact
         </a>
+
+        <!-- Open External Mapping Service Item -->
+        <a class="tab-item" ng-click="openExternalMaps()">
+            <i class="icon tab-bar fa fa-map-marker" aria-hidden="true"></i>Map
+        </a>
     </div>
+
 </ion-view>
